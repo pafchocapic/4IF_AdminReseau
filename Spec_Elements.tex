@@ -1,6 +1,40 @@
 %dans ce document, etablir les liste d e tous les poiunts techniques/critiques qui vont etre mis en plaace dans cette archi
 
-\subsection{Archi existante}
-
+\subsubsection{Exigences}
+securité\\
+    evoiter les acces malveillant et sniff\\
+robustesse\\
+    Permettre aux plateformes de chaques site de survivre sans communication au site central\\
+silence\\
+    eviter d'inonder les reseaux voisins par le multicast des automates\\
 \subsection{VPN}
+\subsubsection{Objectifs}
+%permettre la communication site à site
+Le VPN est un moyen de...\\
+
+
+%communication possible entre toutes les machines AIP
+\subsubsection{Authentification}
+site à site\\
+passphrase ou PKI certificat
+
+
+\subsection{Cas des plateformes mobiles}
+\subsubsection{Communications entre automates}
+Les automates doivent pouvoir communiquer entre eux pour le partage des variables globales
+
+\begin{itemize}
+	\item multicast
+	\item unicast
+\end{itemize}
+
+\subsubsection{Intégration aux réseaux}
+un routeur deja prêts pour les acceuilir, chaque atelier est en mesure de les acceuilir sans installation de matériel supplémentaire.\\
+ ajout de routeur configuré pour non replication des broadcasts udp\\
+
+
+\subsection{Impacts sur les réseaux existants}
+recablage complet de TOUS les atelier machines AIP\\
+utlisation des ldap existants
+
 
