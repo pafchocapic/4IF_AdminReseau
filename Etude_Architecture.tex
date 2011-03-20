@@ -32,6 +32,12 @@
 	\subsection{Description}
 	explications + schéma 
 	
+	Afin de mettre en place une communication sécurisée entre les différents sites, nous optons pour une solution basée sur un VPN (Virtual Private Network). L'utilisation du VPN ne concernant que les machines liées aux automates, nous plaçons sur chaque site un routeur VPN qui fait la passerelle entre les automates et le reste du réseau. Comme les automates peuvent être situés dans différentes salles sur chaque campus, on mettra en place un sous-réseau par salle. 
+	\paragraph*{}
+	Sur le schéma ci-dessous, on peut voir en gris les différents éléments qui constituent le réseau actuellement. Les nouveaux composants sont représentés en vert : un routeur au niveau de chaque salle et un routeur VPN au niveau de chaque site (reliant les différents routeurs des sous-réseaux des salles). Le tunnel VPN ainsi créé est représenté en bleu. 
+	\paragraph*{}
+	TODO : scanner le schéma de la séance 1 et l'insérer ici =D 
+	
 \section{Spécification des éléments retenus}
 \input{Spec_Elements.tex}
 	
