@@ -36,6 +36,31 @@
 	\paragraph*{}
 	TODO : scanner le schéma de la séance 1 et l'insérer ici =D 
 
+\subsection{VPN}
+
+\subsubsection{Objectifs}
+%permettre la communication site à site
+Le VPN est un moyen de communication qui permet de mettre en réseau des sites distants entre eux de manière sécurisé.
+Le VPN sera à la base de notre solution. C'est lui qui permettra de répondre aux 3 attentes énoncées précédemment.
+
+%communication possible entre toutes les machines AIP
+\subsubsection{Authentification}
+
+Deux niveaux d'identification/authentification seront mis en place pour cette solution.
+\begin{description}
+\item{Site à site} \\
+Une première identification sera effectuée au niveau de chaque routeur d'entrée sur le site de l'AIP. Ce routeur sera équipé un client VPN enbarqué du type Cisco Asa. Ces routeurs permettront l'accès au deux réseaux : 
+\begin{itemize}
+\item Le réseau académique du site
+\item Le réseau privé virtuel de l'AIP dans sa blobalité
+\end{itemize}
+Cette connection VPN se faisant site à site, des passphrase globale ou, mieux, des certificats devront être mis en place pour assurer une double authentification.
+\item{Personelle} \\
+Cette identification porte au niveaux des utilisateurs eux-mêmes. Il s'agit d'ajouter les utilisateurs de l'AIP au groupe des utilisateurs AIP dans les LDAP des université d'acceuil.\\
+Seule les personnes appartenant à ce groupe pourront se logger sur les machines de l'AIP.
+
+\end{description}
+
 	
 \section{Plans de nommage et d'adressage}
 	\subsection{Plan de nommage}
