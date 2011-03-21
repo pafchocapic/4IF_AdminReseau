@@ -29,17 +29,38 @@
 \newpage
 
 \section{Architecture}
-	\subsection{Description}
-	explications + schéma 
-	
+	\subsection{Description} % redétailler en séparant interconnexion et sur chaque site. mettre en avant la sécurité. 	
 	Afin de mettre en place une communication sécurisée entre les différents sites, nous optons pour une solution basée sur un VPN (Virtual Private Network). L'utilisation du VPN ne concernant que les machines liées aux automates, nous plaçons sur chaque site un routeur VPN qui fait la passerelle entre les automates et le reste du réseau. Comme les automates peuvent être situés dans différentes salles sur chaque campus, on mettra en place un sous-réseau par salle. 
 	\paragraph*{}
 	Sur le schéma ci-dessous, on peut voir en gris les différents éléments qui constituent le réseau actuellement. Les nouveaux composants sont représentés en vert : un routeur au niveau de chaque salle et un routeur VPN au niveau de chaque site (reliant les différents routeurs des sous-réseaux des salles). Le tunnel VPN ainsi créé est représenté en bleu. 
 	\paragraph*{}
 	TODO : scanner le schéma de la séance 1 et l'insérer ici =D 
-	
-\section{Spécification des éléments retenus}
-\input{Spec_Elements.tex}
+
+\subsection{VPN}
+
+\subsubsection{Objectifs}
+%permettre la communication site à site
+Le VPN est un moyen de communication qui permet de mettre en réseau des sites distants entre eux de manière sécurisé.
+Le VPN sera à la base de notre solution. C'est lui qui permettra de répondre aux 3 attentes énoncées précédemment.
+
+%communication possible entre toutes les machines AIP
+\subsubsection{Authentification}
+
+Deux niveaux d'identification/authentification seront mis en place pour cette solution.
+\begin{description}
+\item{Site à site} \\
+Une première identification sera effectuée au niveau de chaque routeur d'entrée sur le site de l'AIP. Ce routeur sera équipé un client VPN enbarqué du type Cisco Asa. Ces routeurs permettront l'accès au deux réseaux : 
+\begin{itemize}
+\item Le réseau académique du site
+\item Le réseau privé virtuel de l'AIP dans sa blobalité
+\end{itemize}
+Cette connection VPN se faisant site à site, des passphrase globale ou, mieux, des certificats devront être mis en place pour assurer une double authentification.
+\item{Personelle} \\
+Cette identification porte au niveaux des utilisateurs eux-mêmes. Il s'agit d'ajouter les utilisateurs de l'AIP au groupe des utilisateurs AIP dans les LDAP des université d'acceuil.\\
+Seule les personnes appartenant à ce groupe pourront se logger sur les machines de l'AIP.
+
+\end{description}
+
 	
 \section{Plans de nommage et d'adressage}
 	\subsection{Plan de nommage}
