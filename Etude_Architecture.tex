@@ -40,8 +40,11 @@
 	\paragraph*{} % Switchs VLAN
 	Comme les automates peuvent être situés dans différentes salles sur chaque site, on mettra en place un sous-réseau par salle, en utilisant des switchs VLAN (Virtual Local Area Network). L'utilisation de ces switchs permet également de limiter le broadcast UDP des automates sur le réseau. 
 	
-	\paragraph*{} % DNS
-	Nous allons mettre en place un serveur DNS par site. +1 phrase de Juju pour compléter. 
+	\paragraph*{} % DNS 
+	Nous allons mettre en place un serveur DNS par site. Ceci permettra de déplacer des plate-formes mobiles d'un site à un autre, car l'utilisation des DNS originaux des campus poserait un problème de réactivité pour la création ou suppression d'une entrée. 
+	
+	\paragraph*{} % DHCP
+	Nous mettrons également en place un serveur DHCP par site pour gérer dynamiquement l'adressage des parcs de machines et d'automates de l'AIP. 
 	
 	\paragraph*{} % Authentification et Annuaires LDAP
 	L'authentification se fera au moyen d'un groupe d'utilisateur répliqué sur tous les annuaires LDAP des différents campus. Ainsi, les utilisateurs mobiles d'un site AIP à l'autre pourront s'authentifier où qu'ils soient. 
