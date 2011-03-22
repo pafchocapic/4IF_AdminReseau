@@ -41,31 +41,83 @@
 
 \subsubsection{Site Lyon : AIP Bat Jacquard }
 
-Plages IP addressables : 
+\paragraph{Plages IP addressables :} 
 \begin{itemize}
-\item[10.1.1.2 à 10.1.1.253]
-\item[10.1.2.2 à 10.1.2.253]
+\item[10.1.1.2 à 10.1.1.253] Plages postes
+\item[10.1.2.2 à 10.1.2.253] Plages Automates
+\end{itemize}
+
+
+\paragraph{Plages IP d'exclusion :}
+\begin{itemize}
+\item[10.1.0.2 à 10.1.0.253] : Plage réservée au déploiement de serveurs architecturaux et services
+\end{itemize}
+
+\paragraph{Configuration du serveur DHCP}
+
+\begin{itemize}
+\item[Adresse réseau]: 10.1.0.2
+\item[Masque de sous réseau]: 255.255.255.0
+\item[Durée du Bail Long]: 87\% du temps utile
+\item[Durée du Bail court]: 50\% du tempsutie
+\item[Routeur (passerelle)]: 10.1.0.1
+\item[Adresse DNS]: 10.1.0.3
+\item[Associations MAC / IP]: Si l'adresse MAC du demandeur appartient au parc d'adresses défini comme étant automates, l'ip est allouée dans la plage automate, sinon c'est la plage postes.
 \end{itemize}
 
 \subsubsection{Site Lyon : AIP Bat Ferrié}
 
-Plages IP addressables : 
+\paragraph{Plages IP adressables :} 
 \begin{itemize}
 \item[10.2.1.2 à 10.2.1.253]
 \item[10.2.2.2 à 10.2.2.253]
 \end{itemize}
 
+\paragraph{Plages IP d'exclusion :}
+\begin{itemize}
+\item[10.2.0.2 à 10.2.0.253] : Plage réservée au déploiement de serveurs architecturaux et services
+\end{itemize}
+
+\paragraph{Configuration du serveur DHCP}
+
+\begin{itemize}
+\item[Adresse réseau]: 10.2.0.2
+\item[Masque de sous réseau]: 255.255.255.0
+\item[Durée du Bail Long]: 87\% du temps utile
+\item[Durée du Bail court]: 50\% du temps utile
+\item[Routeur (passerelle)]: 10.2.0.1
+\item[Adresse serveur DNS]: 10.2.0.3
+\item[Associations MAC / IP]: Si l'adresse MAC du demandeur appartient au parc d'adresses défini comme étant automates, l'ip est allouée dans la plage automate, sinon c'est la plage postes.
+\end{itemize}
+
+
 \subsubsection{Site Roanne : IUT}
 
-Plages IP addressables : 
+\paragraph{Plages IP addressables :} 
 \begin{itemize}
 \item[10.3.1.2 à 10.3.1.253]
 \item[10.3.2.2 à 10.3.2.253]
 \end{itemize}
 
+\paragraph{Plages IP d'exclusion :}
+\begin{itemize}
+\item[10.1.0.2 à 10.1.0.253] : Plage réservée au déploiement de serveurs architecturaux et services
+\end{itemize}
+
+\paragraph{Configuration du serveur DHCP}
+
+\begin{itemize}
+\item[Adresse réseau]: 10.3.0.2
+\item[Masque de sous réseau]:255.255.255.0
+\item[Durée du Bail Long]: 87\% du temps utile
+\item[Durée du Bail court]: 50\% du temps utile
+\item[Routeur (passerelle)]: 10.3.0.1
+\item[Associations MAC / IP]: Si l'adresse MAC du demandeur appartient au parc d'adresses défini comme étant automates, l'ip est allouée dans la plage automate, sinon c'est la plage postes.
+\end{itemize}
+
 \subsection{Gestion d'annuaires utilisateur LDAP}
 
-Afin de garantir une qualité de service et une utilisabilté même si le site de Lyon-Jacquard est injoignable par réseau, nous décidons d'appliquer une politique de réplication d'un groupe LDAP d'utilisateurs autorisés à utiliser les équipements de l'AIP, sur les trois annuaires LDAP actuellement en fonction sur les campus équpipés d'installations AIP.
+Afin de garantir une qualité de service et une utilisabilté même si le site de Lyon-Jacquard est injoignable par réseau, nous décidons d'appliquer une politique de réplication d'un groupe LDAP d'utilisateurs autorisés à utiliser les équipements de l'AIP, sur les trois annuaires LDAP actuellement en fonction sur les campus équipés d'installations AIP.
 
 \section{Tutoriel de maintenance}
 
