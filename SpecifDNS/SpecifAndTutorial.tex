@@ -55,15 +55,37 @@
 
 \paragraph{Configuration du serveur DHCP}
 
+\subparagraph{Configuration serveur}
 \begin{itemize}
 \item[Adresse réseau]: 10.1.0.2
+\item[Masque de sous réseau]: 255.255.254.0
+\item[Adresse DNS]: 10.1.0.3
+\end{itemize}
+
+\subparagraph{Sous Réseau salles}
+\begin{itemize}
+\item[Adresse réseau]: 10.1.1.0
+\item[Adresse broadcast]: 10.1.1.255
 \item[Masque de sous réseau]: 255.255.255.0
 \item[Durée du Bail Long]: 87\% du temps utile
 \item[Durée du Bail court]: 50\% du tempsutie
-\item[Routeur (passerelle)]: 10.1.0.1
+\item[Routeur (passerelle)]: 10.1.1.1
 \item[Adresse DNS]: 10.1.0.3
-\item[Associations MAC / IP]: Si l'adresse MAC du demandeur appartient au parc d'adresses défini comme étant automates, l'ip est allouée dans la plage automate, sinon c'est la plage postes.
 \end{itemize}
+
+\subparagraph{Sous réseau automates}
+\begin{itemize}
+\item[Adresse réseau]: 10.1.2.0
+\item[Adresse broadcast]: 10.1.2.255
+\item[Masque de sous réseau]: 255.255.255.0
+\item[Durée du Bail Long]: 87\% du temps utile
+\item[Durée du Bail court]: 50\% du tempsutie
+\item[Routeur (passerelle)]: 10.1.2.1
+\item[Adresse DNS]: 10.1.0.3
+\end{itemize}
+
+\subparagraph{Politique d'association MAC/IP}
+Si l'adresse MAC du demandeur appartient au parc d'adresses défini comme étant automates, l'ip est allouée dans la plage automate, sinon c'est la plage postes.
 
 \subsubsection{Site Lyon : AIP Bat Ferrié}
 
@@ -83,12 +105,33 @@
 \begin{itemize}
 \item[Adresse réseau]: 10.2.0.2
 \item[Masque de sous réseau]: 255.255.255.0
-\item[Durée du Bail Long]: 87\% du temps utile
-\item[Durée du Bail court]: 50\% du temps utile
-\item[Routeur (passerelle)]: 10.2.0.1
-\item[Adresse serveur DNS]: 10.2.0.3
-\item[Associations MAC / IP]: Si l'adresse MAC du demandeur appartient au parc d'adresses défini comme étant automates, l'ip est allouée dans la plage automate, sinon c'est la plage postes.
+\item[Adresse DNS]: 10.2.0.3
 \end{itemize}
+
+\subparagraph{Sous Réseau salles}
+\begin{itemize}
+\item[Adresse réseau]: 10.2.1.0
+\item[Adresse broadcast]: 10.2.1.255
+\item[Masque de sous réseau]: 255.255.255.0
+\item[Durée du Bail Long]: 87\% du temps utile
+\item[Durée du Bail court]: 50\% du tempsutie
+\item[Routeur (passerelle)]: 10.2.1.1
+\item[Adresse DNS]: 10.2.0.3
+\end{itemize}
+
+\subparagraph{Sous réseau automates}
+\begin{itemize}
+\item[Adresse réseau]: 10.2.2.0
+\item[Adresse broadcast]: 10.2.2.255
+\item[Masque de sous réseau]: 255.255.255.0
+\item[Durée du Bail Long]: 87\% du temps utile
+\item[Durée du Bail court]: 50\% du tempsutie
+\item[Routeur (passerelle)]: 10.2.2.1
+\item[Adresse DNS]: 10.2.0.3
+\end{itemize}
+
+\subparagraph{Politique d'association MAC/IP}
+Si l'adresse MAC du demandeur appartient au parc d'adresses défini comme étant automates, l'ip est allouée dans la plage automate, sinon c'est la plage postes.
 
 
 \subsubsection{Site Roanne : IUT}
@@ -108,11 +151,30 @@
 
 \begin{itemize}
 \item[Adresse réseau]: 10.3.0.2
-\item[Masque de sous réseau]:255.255.255.0
+\item[Masque de sous réseau]:255.255.254.0
+\item[Adresse DNS]: 10.3.0.3
+\end{itemize}
+
+\subparagraph{Sous Réseau salles}
+\begin{itemize}
+\item[Adresse réseau]: 10.3.1.0
+\item[Adresse broadcast]: 10.3.1.255
+\item[Masque de sous réseau]: 255.255.255.0
 \item[Durée du Bail Long]: 87\% du temps utile
-\item[Durée du Bail court]: 50\% du temps utile
-\item[Routeur (passerelle)]: 10.3.0.1
-\item[Associations MAC / IP]: Si l'adresse MAC du demandeur appartient au parc d'adresses défini comme étant automates, l'ip est allouée dans la plage automate, sinon c'est la plage postes.
+\item[Durée du Bail court]: 50\% du tempsutie
+\item[Routeur (passerelle)]: 10.3.1.1
+\item[Adresse DNS]: 10.3.0.3
+\end{itemize}
+
+\subparagraph{Sous réseau automates}
+\begin{itemize}
+\item[Adresse réseau]: 10.3.2.0
+\item[Adresse broadcast]: 10.3.2.255
+\item[Masque de sous réseau]: 255.255.255.0
+\item[Durée du Bail Long]: 87\% du temps utile
+\item[Durée du Bail court]: 50\% du tempsutie
+\item[Routeur (passerelle)]: 10.3.2.1
+\item[Adresse DNS]: 10.3.0.3
 \end{itemize}
 
 \subsection{Gestion d'annuaires utilisateur LDAP}
