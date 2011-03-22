@@ -32,9 +32,40 @@
 
 \subsection{Politique de nommage et déploiement des services d'annuaires machines }
 
+
+
 \subsection{Configuration de base des serveurs DHCP}
 
+% TODO, vérifier si il est possible de scanner les ports d'emissions des paquets de façon à déterminer
+% si la requette DHCPREQUEST proviens d'une machine ou d'un automate...
+
+\subsubsection{Site Lyon : AIP Bat Jacquard }
+
+Plages IP addressables : 
+\begin{itemize}
+\item[10.1.1.2 à 10.1.1.253]
+\item[10.1.2.2 à 10.1.2.253]
+\end{itemize}
+
+\subsubsection{Site Lyon : AIP Bat Ferrié}
+
+Plages IP addressables : 
+\begin{itemize}
+\item[10.2.1.2 à 10.2.1.253]
+\item[10.2.2.2 à 10.2.2.253]
+\end{itemize}
+
+\subsubsection{Site Roanne : IUT}
+
+Plages IP addressables : 
+\begin{itemize}
+\item[10.3.1.2 à 10.3.1.253]
+\item[10.3.2.2 à 10.3.2.253]
+\end{itemize}
+
 \subsection{Gestion d'annuaires utilisateur LDAP}
+
+Afin de garantir une qualité de service et une utilisabilté même si le site de Lyon-Jacquard est injoignable par réseau, nous décidons d'appliquer une politique de réplication d'un groupe LDAP d'utilisateurs autorisés à utiliser les équipements de l'AIP, sur les trois annuaires LDAP actuellement en fonction sur les campus équpipés d'installations AIP.
 
 \section{Tutoriel de maintenance}
 
