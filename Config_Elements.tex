@@ -30,7 +30,28 @@
 
 \section{Spécification détaillée de l'architecture}
 	\subsection{Définition des matériels}
-	Gruck
+	L'installation vise à s'insérer au mieux dans les réseaux existants. Cependant quelques matériels particulier devront être achetés.
+	\subsubsection{Routeur VPN}
+Ils sont à la base de l'architecture et sont situés à l'entrée de chacun des sites de l'AIP.
+Ceux-ci permettent le communications sécurisées site à site, mais également les communications vers un PC distant.
+\paragraph{Matériel envisagé}
+Le matériel proposé dans les documentations fournies peut convenir. En effet, il permet l'utilisation de VPN sur deux protocoles différents : 
+\begin{itemize}
+	\item{VPN de PPTP} Ce mode est intégré à Windows par l'utilisation de Radius.
+	\item{VPN L2TP IPSEC} Ce mode de fonctionement ne propose pas d'outils de QoS ce qui empeche toute utilisation de ce mode pour la VoIP ou Visioconférence.
+\end{itemize}
+
+	\subsubsection{Switches Vlan}
+Ces switches permettent d'isoler les équipements qui peuvent innonder le réseau. Ainsi, les plateformes de TP qui utilisent le Broadcast UDP peuvent être isolées dans un sous réseau, tout en restant accessible depuis l'extérieur.
+	
+	
+	\subsubsection{Switches conventionnels}
+	
+	\subsubsection{Serveur DHCP}
+	
+
+	\subsubsection{Dimensionnement}
+Pour le dimentionement de ces équipements
 	
 	\subsection{Construction du plan d'adressage}
 	Juju
