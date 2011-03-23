@@ -36,9 +36,6 @@
 
 \subsection{Configuration de base des serveurs DHCP}
 
-% TODO, vérifier si il est possible de scanner les ports d'emissions des paquets de façon à déterminer
-% si la requette DHCPREQUEST proviens d'une machine ou d'un automate...
-
 \subsubsection{Site Lyon : AIP Bat Jacquard }
 
 \paragraph{Plages IP addressables :} 
@@ -84,9 +81,6 @@
 \item[Adresse DNS]: 10.1.0.3
 \end{itemize}
 
-\subparagraph{Politique d'association MAC/IP}
-Si l'adresse MAC du demandeur appartient au parc d'adresses défini comme étant automates, l'ip est allouée dans la plage automate, sinon c'est la plage postes.
-
 \subsubsection{Site Lyon : AIP Bat Ferrié}
 
 \paragraph{Plages IP adressables :} 
@@ -130,10 +124,6 @@ Si l'adresse MAC du demandeur appartient au parc d'adresses défini comme étant
 \item[Adresse DNS]: 10.2.0.3
 \end{itemize}
 
-\subparagraph{Politique d'association MAC/IP}
-Si l'adresse MAC du demandeur appartient au parc d'adresses défini comme étant automates, l'ip est allouée dans la plage automate, sinon c'est la plage postes.
-
-
 \subsubsection{Site Roanne : IUT}
 
 \paragraph{Plages IP addressables :} 
@@ -176,6 +166,14 @@ Si l'adresse MAC du demandeur appartient au parc d'adresses défini comme étant
 \item[Routeur (passerelle)]: 10.3.2.1
 \item[Adresse DNS]: 10.3.0.3
 \end{itemize}
+
+\subsection{Politique d'affectation d'IP par site}
+
+Chaque site est équipé de deux sous réseaux, l'un destiné aux postes de types PC destinés au cours et l'autre destiné à l'affectation d'automates. Un problème se pose donc au niveau du DHCP quant à l'affectation dans tel où tel sous réseau de la machine ayant émis la requête.\\
+Nous faisons donc l'hypothèse, en accord avec l'équipe enseignante, que les automates possèdent chacun un fichier de configuration éditable par les administrateurs, contenant l'adresse fixée (dans le sous réseau automates du site) souhaitée et le nom DNS cohérent, qui seront transmises dans la trame DHCPREQUEST.\\
+Ainsi si l'IP est disponible ( assertion au préalable vérifiée par le serveur DHCP :=) ) elle sera affectée dans un bail soumis à la machine demande, comme spécifié dans le fonctionnement du DHCP.\\
+Dans le cas contraire, l'affectation est refusée et l'automate procédera à des demandes à intervalle régulier jusqu'à ce qu'il obtienne ce qu'il désire.\\
+Notons bien que la plage d'adressage des sous réseaux automates est différente en fonction du site, ainsi en cas de déplacement il sera obligatoire de recréer un fichier de configuration par site avant la première connexion du dispositif. 
 
 \subsection{Gestion d'annuaires utilisateur LDAP}
 
