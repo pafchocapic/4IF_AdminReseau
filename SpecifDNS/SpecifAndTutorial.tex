@@ -203,23 +203,51 @@ Afin de garantir une qualité de service et une utilisabilté même si le site d
 
 \subsection{Comment ajouter une machine type P.C sur le réseau ?}
 
+L'objectif ici est de rajouter une marchine de type poste de travail sur le réseau.
+
 \subsubsection{Restauration d'une configuration standard sur le poste}
+
+Via l'utilisation des outils d'administration mis à disposition par l'équipe responsable de cetta activité au sein de l'institution, restaurer une image propre et vierge d'un poste de travail standard.
 
 \subsubsection{Création d'une entrée dans l'annuaire DNS}
 
+Editer le fichier d'annuaire du serveur DNS via un éditeur de texte console.
+Rajouter la ligne contenant la correspondance MAC - NomDeMachine cohérente au plan de nommage défini un peu plus haut dans ce 
+manuel.
+
 \subsubsection{Création d'une entrée dans l'annuaire LDAP du campus}
+
+Effectuer une demande de création de machine dans l'annuaire LDAP dans le bon groupe (AIP), puis faites preuve de beaucoup de patience :-).
+
+\subsubsection{Branchement de la machine au réseau sur site}
+Tout est dans le titre.
 
 \subsubsection{Bind de la machine au LDAP du campus}
 
+Une fois la réponse de la DSI de campus reçue, effectuez les opérations de bind à l'anuaire LDAP  (activation de Kerberos, authentification LDAP, management des homes utilisateur à distance en accord avec la politique de la DSI).\\
+La marche à suivre n'est pas détaillée ici, car trop dépendante de l'OS utilisé :-)
+
 \subsubsection{Opérations de vérification}
+
+\paragraph{Vérification de la connexion au réseau et de la configuration DHCP}
+
+\begin{enumerate}
+\item Ouvrir un invite de commande / shell
+\item Vérification de la configuraiton de eth0 par la commande ipconfig / ifconfig. Si une adresse est attribuée à  la machine, alors le test est validé . 
+\item Lancer un ping sur la passerelle 10.x.1.1 ( x étant dépendant du site 1 Jacquard 2 Ferrié 3 Roanne) pour vérifier 
+\item Lancer un traceroute sur une adresse internet quelconque pour vérifier l'état de l'accès internet et vérifier le bon routage des paquets à destinations de l'exterieur
+\item Lancer un traceroute sur une machine distance appartenant au VPN pour vérifier le bon fonctionnement de ce dernier.
+\end{enumerate}
 
 \subsection{Comment supprimer une machine type P.C sur le réseau ?}
 
 \subsubsection{Suppression de l'entrée LDAP de la machine}
 
+Faites la demande à la DSI du campus.
+
 \subsubsection{Suppression de l'entrée DNS de la machine}
 
-\subsubsection{Opérations de vérification}
+Supprimez la bonne ligne dans le fichier de conf du serveur DNS.
 
 \subsection{Comment déplacer une plateforme de TP temporairement ?}
 
