@@ -28,12 +28,17 @@
 \tableofcontents
 \newpage
 
-\section{Spécification de l'architecture DNS}
+\section{Spécification de l'architecture DHCP/DNS}
 
 \subsection{Politique de nommage et déploiement des services d'annuaires machines }
 
 
+\subsection{Plan d'adressage des sites}
 
+\begin{center}
+\includegraphics[scale=1.0]{Adressage.pdf}
+\end{center}
+ 
 \subsection{Configuration de base des serveurs DHCP}
 
 \subsubsection{Site Lyon : AIP Bat Jacquard }
@@ -66,7 +71,7 @@
 \item[Masque de sous réseau]: 255.255.255.0
 \item[Durée du Bail Long]: 87\% du temps utile
 \item[Durée du Bail court]: 50\% du tempsutie
-\item[Routeur (passerelle)]: 10.1.1.1
+\item[Routeur (passerelle)]: 10.1.0.1
 \item[Adresse DNS]: 10.1.0.3
 \end{itemize}
 
@@ -76,8 +81,8 @@
 \item[Adresse broadcast]: 10.1.2.255
 \item[Masque de sous réseau]: 255.255.255.0
 \item[Durée du Bail Long]: 87\% du temps utile
-\item[Durée du Bail court]: 50\% du tempsutie
-\item[Routeur (passerelle)]: 10.1.2.1
+\item[Durée du Bail court]: 50\% du temps utie
+\item[Routeur (passerelle)]: 10.1.0.1
 \item[Adresse DNS]: 10.1.0.3
 \end{itemize}
 
@@ -109,7 +114,7 @@
 \item[Masque de sous réseau]: 255.255.255.0
 \item[Durée du Bail Long]: 87\% du temps utile
 \item[Durée du Bail court]: 50\% du tempsutie
-\item[Routeur (passerelle)]: 10.2.1.1
+\item[Routeur (passerelle)]: 10.2.0.1
 \item[Adresse DNS]: 10.2.0.3
 \end{itemize}
 
@@ -120,7 +125,7 @@
 \item[Masque de sous réseau]: 255.255.255.0
 \item[Durée du Bail Long]: 87\% du temps utile
 \item[Durée du Bail court]: 50\% du tempsutie
-\item[Routeur (passerelle)]: 10.2.2.1
+\item[Routeur (passerelle)]: 10.2.0.1
 \item[Adresse DNS]: 10.2.0.3
 \end{itemize}
 
@@ -152,7 +157,7 @@
 \item[Masque de sous réseau]: 255.255.255.0
 \item[Durée du Bail Long]: 87\% du temps utile
 \item[Durée du Bail court]: 50\% du tempsutie
-\item[Routeur (passerelle)]: 10.3.1.1
+\item[Routeur (passerelle)]: 10.3.0.1
 \item[Adresse DNS]: 10.3.0.3
 \end{itemize}
 
@@ -163,7 +168,7 @@
 \item[Masque de sous réseau]: 255.255.255.0
 \item[Durée du Bail Long]: 87\% du temps utile
 \item[Durée du Bail court]: 50\% du tempsutie
-\item[Routeur (passerelle)]: 10.3.2.1
+\item[Routeur (passerelle)]: 10.3.0.1
 \item[Adresse DNS]: 10.3.0.3
 \end{itemize}
 
@@ -249,18 +254,39 @@ Faites la demande à la DSI du campus.
 
 Supprimez la bonne ligne dans le fichier de conf du serveur DNS.
 
-\subsection{Comment déplacer une plateforme de TP temporairement ?}
-
-\subsubsection{Sur le site de départ}
-
-\subsubsection{Sur le site de déplacement}
-
 \subsection{Comment ajouter une plateforme de TP  ?}
 
+\subsubsection{Création du fichier de configuration de l'automate}
+
+Créez un fichier de configuration formaté selon ce qui est spécifié par le constructeur de l'automate.
+Renseignez l'adresse IP à demander en cohérence avec le plan d'adressage et l'état des plages d'adressage.
+
 \subsubsection{Création de l'entrée DNS}
+
+Idem qu'un poste PC.
+
+\subsubsection{Connexion de l'automate}
+
+Cablez l'automate en alimentation et en réseau.
+
+\subsubsection{Véficiations}
+
+Effectuez les vérifications avec les médias disponibles sur l'automate...
 
 \subsection{Comment supprimer une plateforme de TP définitivement ?}
 
 \subsubsection{Suppression de l'entrée DNS}
+
+Idem qu'un poste PC.
+
+\subsection{Comment déplacer une plateforme de TP temporairement ?}
+
+\subsubsection{Sur le site de départ}
+
+Seule les manipulations de cablage sont à effectuer pour le déplacement d'un automate
+
+\subsubsection{Sur le site de déplacement}
+
+Créer ou réutiliser un fichier de conf cohérent avec le plan d'adressage du site et le déployer sur l'automate concerné.
 
 \end{document}
