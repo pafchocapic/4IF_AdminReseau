@@ -30,8 +30,65 @@
 
 \section{Spécification de l'architecture DHCP/DNS}
 
-\subsection{Politique de nommage et déploiement des services d'annuaires machines }
+\subsection{Politique de nommage et déploiement des services d'annuaires par site}
 
+\subsubsection{Politique de nommage}
+
+L'objectif est ici de pouvoir retrouver à partir du nom de la machine emetrice ou cette dernière se trouve et quelle est son type / rôle au sein du réseau, afin de pouvoir faciliter la maintenance opérationelle du réseau AIP. Cetteconvention devra cependant se réveller suffisament flexible pour coller à toutes les configurations possibles.
+
+Afin de répondre à cette problématique, nous choisissions une politique de nommage en 4 champs : 
+
+\begin{itemize}
+\item Prefixe
+\item Campus
+\item Site
+\item TypeMachine
+\item Identifiant unique machine (optionel)
+\end{itemize}
+
+\paragraph{Préfixe}
+Le préfixe sera toujours AIP, pour permettre d'identifier les noms appartenant à l'AIP dans les tables publiques
+
+\paragraph{Campus}
+Il s'agit de l'identifiant unique du campus, ce qui dans notre cas pourra être INSA ou ROANNE
+
+\paragraph{Site}
+Identifiant unique du Site de l'AIP, se référant au nom du batiment hébergeant l'atelier et éventuellement un identifiant numérique au cas ou le batiment héberge plusieurs ateliers. 
+
+\paragraph{TypeMachine}
+
+\subparagraph{Equipement d'infrastructure}
+
+Son identifant de type sera le service qu'il fournit à l'architecture (EX : Video, DHCP, DNS, RVPN etc...)
+
+\subparagraph{Poste}
+
+Son identifiant de type sera le numéro de salle préfixée du caractère 'S' dans laquelle la machine est active ( Ex : S01, S02, S03...)
+
+\subparagraph{Automate}
+
+Caractère 'A'
+
+\paragraph{Identifiant unique machine}
+Identifiant numérique unique du poste. Dans le cas des automates, le numéro d'identifiant est associé au dernier octet de son IP "demandée".
+
+\subsubsection{Organisation du service DNS inter-site}
+
+\paragraph{Architecture des DNS du VPN}
+Chaque serveur DNS par site fait autorité sur le site qu'il occupe, et redi
+Nous définissons le DNS root du VPN comme étant celui de Lyon Jacquard,pour la gestion des connexions extérieures,
+cela implique une réplication des informations DNS des éléments architecturaux de chaque sous réseau sur ce dernier.
+
+\subsubsection{Configuration détaillée des annuaires}
+
+Nous allons spécifier les entrées DNS à renseigner dans l'annuaire.
+
+\begin{itemize}
+\item A
+\item NS
+\item CNAME
+\item PTR 
+\end{itemize}
 
 \subsection{Plan d'adressage des sites}
 
