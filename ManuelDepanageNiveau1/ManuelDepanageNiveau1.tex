@@ -37,48 +37,52 @@ Il ne requiert aucune compétence ni connaissance spécifique. Tous les élement
 \subsection{Moyens}
 %description des outils qu'il devra utiliser,
 %si mise en place de commandes, les décrire ici avant
-Afin de permettre ce support, certains outils et utilitaires devront être utilisés. Ceux-ci sont généralement accessible sur les machines de l'AIP.\\
+Afin de permettre ce support, certains outils et utilitaires devront être utilisés. Ceux-ci sont généralement accessibles sur les machines de l'AIP.\\
 Dans cette section, nous décrirons brièvement ces outils, comment les activer ou y accéder.
 
 \subsubsection{La lampe de poche}
 Bien que simple, elle peut vite devenir indispensable.
 
 \subsubsection{L'invite de commande}
-Il s'agit un environnement dans lequel l'utilisateur est invité à saisir des commandes sous formes de texte.
-Il ne sera pas nécessaire de connaitre les commandes à saisir, elle seront décrite en temps utile.\\
+Il s'agit d'une fenêtre dans laquelle l'utilisateur est invité à saisir des commandes sous forme de texte.
+Il ne sera pas nécessaire de connaître les commandes à saisir, elle seront décrites en temps utile.\\
 Pour y accéder :
 \begin{enumerate}
 	\item Menu Démarrer
 	\item Exécuter
-	\item Saisir CMD
-	\item appuyer sur ok
+	\item Saisir : "CMD"
+	\item Appuyer sur \verb![OK]!
 \end{enumerate}
 \subsubsection{Commandes courantes}
-Certaines commandes sont à la base de bon nombre de manipulation, parmi celles-ci : 
-\begin{itemize}
-\item echo : \\
-\item IpConfig
-Permet d'envoyer des messages sur le réseaux vers des sockets.  
-\item ipconfig (ou ifconfig pour linux)\\
-Cette commande permet de récupérer les informations de configuration de la machine : \\
-\begin{itemize}
-\item[•]Identification physique : liste des interfaces, adresses MAC et type de matériel.
-\item[•]Identification logique : nom de la machine, adresses IP.
-\item[•]Identification des réseaux : adresses IP et masque.
-\item[•]Identification des machines assurant un service particulier (annuaire, routage, ...).
-\end{itemize}
-\item ping \\
-On effectue cette commande sur une adresse IP soit sur un nom de machine 
-\item nslookup
+Certaines commandes sont à la base de bon nombre de manipulations, parmi celles-ci : 
+	\begin{itemize}
+	\item \texttt{echo} : (manque explication)\\
+	
+	\item IpConfig : \\
+	Permet d'envoyer des messages sur le réseau vers des sockets. (? doublon ?)
+	
+	\item \texttt{ipconfig} (ou \texttt{ifconfig} sous Linux) : \\
+	Cette commande permet de récupérer les informations de configuration de la machine : \\
+		\begin{itemize}
+		\item[•]Identification physique : liste des interfaces, adresses MAC et type de matériel.
+		\item[•]Identification logique : nom de la machine, adresses IP.
+		\item[•]Identification des réseaux : adresses IP et masque.
+		\item[•]Identification des machines assurant un service particulier (annuaire, routage, etc).
+		\end{itemize}
+		
+	\item \texttt{ping} : \\
+	On effectue cette commande sur une adresse IP ou sur un nom de machine. (préciser la syntaxe avec un exemple) 
+	
+	\item \texttt{nslookup} : (manque explication)
+	
+	\end{itemize}
 
-\end{itemize}
-
-\subsubsection{Client VPN}
+\subsubsection{Le client VPN}
 Les clients VPN sont des utilitaires qui permettent à des machines distantes d'être virtuellement connectées au réseau de l'AIP.\\
-Normalement, ces clients sont installés de bases sur la machines mises à dispositions des membres de l'AIP, toutefois, il est possible de les télécharger. Cette étape ne sera pas détaillé ici.
+Normalement, ce client est installé de base sur la machine mise à disposition des membres de l'AIP. Il est également possible de le télécharger, toutefois, cette étape ne sera pas détaillée ici.
 
-\subsubsection{Autre Utilitaire}
-Voir ce qu'on peut mettre ici
+\subsubsection{Autres utilitaires}
+(Voir ce qu'on peut mettre ici)
 
 
 \section{Protocole opératoire}
