@@ -56,11 +56,8 @@ Pour y accéder :
 \subsubsection{Commandes courantes}
 Certaines commandes sont à la base de bon nombre de manipulations, parmi celles-ci : 
 	\begin{itemize}
-	\item \texttt{echo} : (manque explication)\\
-	
-	\item IpConfig : \\
-	Permet d'envoyer des messages sur le réseau vers des sockets. (? doublon ?)
-	
+	\item \texttt{echo} : permet de renvoyer des caractères au système source.\\
+		
 	\item \texttt{ipconfig} (ou \texttt{ifconfig} sous Linux) : \\
 	Cette commande permet de récupérer les informations de configuration de la machine : \\
 		\begin{itemize}
@@ -71,11 +68,27 @@ Certaines commandes sont à la base de bon nombre de manipulations, parmi celles
 		\end{itemize}
 		
 	\item \texttt{ping} : \\
-	On effectue cette commande sur une adresse IP ou sur un nom de machine. (préciser la syntaxe avec un exemple) 
+	On effectue cette commande sur une adresse IP ou sur un nom de machine. Ceci permet de savoir : 
+		\begin{itemize}	
+		\item[•]Si une machine est atteignable
+		\item[•]Quel délai moyen peut être envisagé pour atteindre cette machine
+		\end{itemize}
+	Le ping sur un nom machine permet de savoir si le poste source peut atteindre le DNS et si ce service est bien actif.
+	Exemple d'utilisation : ping 127.0.0.1 (votre ordinateur).
 	
-	\item \texttt{nslookup} : (manque explication)
+	\item \texttt{tracert} (ou \texttt{traceroute} sous Linux) : \\
+	Cette commande permet d'identifier les routes suivies par les paquets pour atteindre une cible. Ceci permet de pouvoir reconstruire la topologie du réseau.
+	Exemple d'utilisation : tracert google.fr
 	
+	\item \texttt{netstat} :\\
+	La commande netstat est une commande affichant des informations sur les connexions réseau, les tables de routage et un certain nombre de statistiques. 
+	Ces informations epuvent être présenté par  protocole (IP, TCP, UDP, ICMP : netsat -s), être relatives à une interface réseau (netstat -e), aux tables de routage (netstat -r) 
+	ou aux connexions actives (netstat -a). D'autres options permettent un filtrage sur les connexions actives (-n = alla active connections, -p = TCP conections, -p UDP = UDP connections).
+	
+	\item \texttt{nslookup} : \\
+	La commande nslookup permet d'interroger les serveurs DNS pour obtenir les informations définies pour un domaine déterminé.
 	\end{itemize}
+
 
 \subsubsection{Le client VPN}
 Les clients VPN sont des utilitaires qui permettent à des machines distantes d'être virtuellement connectées au réseau de l'AIP.\\
