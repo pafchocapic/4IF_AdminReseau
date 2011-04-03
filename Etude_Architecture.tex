@@ -24,8 +24,8 @@
 	\vfill
 \end{titlepage}
 
-\newpage
-\tableofcontents
+%\newpage
+%\tableofcontents
 \newpage
 
 \section{Architecture}
@@ -35,10 +35,11 @@
 	Afin de mettre en place une communication sécurisée entre les différents sites, nous optons pour une solution basée sur un VPN (Virtual Private Network). 
 	
 	\paragraph*{} % Routeurs VPN
-	L'utilisation du VPN ne concernant que les machines et les automates de l'AIP, nous plaçons sur chaque site de l'AIP un routeur équipé d'un client VPN qui fait la passerelle entre les automates et le reste du réseau local. 
+	L'utilisation du VPN ne concernant que les machines et les automates de l'AIP, nous plaçons sur chaque site de l'AIP un routeur équipé d'un client VPN qui fait la passerelle entre le site et le réseau du campus. Ces routeurs VPN sont également équipés de firewalls. 
 	
 	\paragraph*{} % Switchs VLAN
-	Comme les automates peuvent être situés dans différentes salles sur chaque site, on mettra en place un sous-réseau par salle, en utilisant des switchs VLAN (Virtual Local Area Network). L'utilisation de ces switchs permet également de limiter le broadcast UDP des automates sur le réseau. 
+	%Comme les automates peuvent être situés dans différentes salles sur chaque site, on mettra en place un sous-réseau par salle, en utilisant des switchs VLAN (Virtual Local Area Network). L'utilisation de ces switchs permet également de limiter le broadcast UDP des automates sur le réseau. 
+	Chaque site peut contenir des automates et des PC de travail. On mettra en place un sous-réseau comprenant tous les automates et un autre sous-réseau comprenant tous les PC, en utilisant des switchs VLAN (Virtual Local Area Network). L'utilisation de ces switchs permet de limiter le broadcast UDP des automates sur le réseau. 
 	
 	\paragraph*{} % DNS 
 	Nous allons mettre en place un serveur DNS par site. Ceci permettra de déplacer des plate-formes mobiles d'un site à un autre, car l'utilisation des DNS originaux des campus poserait un problème de réactivité pour la création ou suppression d'une entrée. 
@@ -47,13 +48,11 @@
 	Nous mettrons également en place un serveur DHCP par site pour gérer dynamiquement l'adressage des parcs de machines et d'automates de l'AIP. 
 	
 	\paragraph*{} % Authentification et Annuaires LDAP
-	L'authentification se fera au moyen d'un groupe d'utilisateur répliqué sur tous les annuaires LDAP des différents campus. Ainsi, les utilisateurs mobiles d'un site AIP à l'autre pourront s'authentifier où qu'ils soient. 
-	
-	\paragraph*{} % Explication du schéma
-	Sur le schéma ci-dessous, on peut voir en gris les différents éléments qui constituent le réseau actuellement. Les nouveaux composants sont représentés en vert : un switch au niveau de chaque salle et un routeur VPN au niveau de chaque site. Le tunnel VPN ainsi créé est représenté en bleu. 
+	L'authentification sur site se fera au moyen d'un groupe d'utilisateur répliqué sur tous les annuaires LDAP des différents campus. Ainsi, les utilisateurs mobiles d'un site AIP à l'autre pourront s'authentifier où qu'ils soient. L'authentification depuis l'extérieur pourra se faire grâce à un client VPN déployé sur une machine distante, avec une politique d'authentification par certificat. 
 	
 	\paragraph*{} % Schéma
-	TODO : scanner le schéma de la séance 1 et l'insérer ici =D 
+	Sur le schéma ci-dessous, on peut voir les différents éléments qui constitueront le réseau. Le tunnel VPN ainsi créé est représenté en rouge. \\
+	\includegraphics[width=\linewidth]{schema_archi.png}
 
 	
 \section{Plans de nommage et d'adressage}
@@ -61,8 +60,8 @@
 
 	Pour rappel, les exigences au niveau du plan de nommage sont :\\
 	\begin{itemize}
-	\item Gestion des instituts
-	\item Gestion des sites présents dans les instituts
+	\item Gestion des campus
+	\item Gestion des sites présents dans les campus
 	\item Type l'entrée
 	\item Générique et extensible
 	\end{itemize}	
