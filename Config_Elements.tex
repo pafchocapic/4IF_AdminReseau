@@ -45,11 +45,20 @@ Le matériel proposé dans les documentations fournies peut convenir. En effet, 
 Ces switchs permettent d'isoler les équipements qui peuvent inonder le réseau. Ainsi, les plateformes de TP qui utilisent le broadcast UDP peuvent être isolées dans un sous-réseau, tout en restant accessibles depuis l'extérieur.
 	
 	\subsubsection{Switchs conventionnels}
+Ces switchs permettent juste de connecter l'ensemble des machines de l'AIP. Ils n'ont aucune intelligence propre.
 	
 	\subsubsection{Serveur DHCP}
+Le serveur DHCP aura pour rôle l'attribution des adresses ip aux divers machines qui seront connectées. Les IP seront établies en fonctions du rôle et de la nature de la machine à connecter.
 
 	\subsubsection{Dimensionnement}
-Pour le dimensionement de ces équipements %TODO
+Pour le dimensionement de ces équipements, nous nous limiterons à une gamme. En effet, les prestataire d'interventions dimensionnent eux-mêmes ces installation.\\
+Au vue de la documentation fournie., plusieurs choix peuvent être faits : 
+\begin{itemize}
+	\item \textbf{Routeurs VPN} La Gamme S@n convient à l'utilisation VPN que l'on aura de ces routeurs.
+	\item \textbf{Switchs VLAN} Nous utiliserons les VLAN proposés par Schneider Electric de la gamme ConneXium parametrables. 
+	\item \textbf{Switchs conventionnels} Nous utiliseront ceux de la même gamme ConneXium non paramétrables cette fois ci. 
+	\item \textbf{Serveurs DHCP} Cette fonctionnalité est très légère et ne nécessite pas d'infrastructure lourde. Le dimensionnement de cette machine ne sera pas abordé ici.
+\end{itemize}
 	
 	\subsection{Construction du plan d'adressage}
 	Juju
