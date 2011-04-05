@@ -5,6 +5,11 @@
 \usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
 \usepackage{graphicx}
 
+\newcounter{SolutionCounter}[subsubsection]
+\newcounter{SubSolutionCounter}[SolutionCounter]
+\newcommand{\soluce}{\stepcounter{SolutionCounter} \paragraph{Solution \arabic{SolutionCounter} : } }
+\newcommand{\subsoluce}{\stepcounter{SubSolutionCounter} \\\textbf{Solution  \arabic{SolutionCounter}.\arabic{SubSolutionCounter} : } }
+
 \begin{document}
 
 \begin{titlepage}
@@ -82,7 +87,7 @@ Certaines commandes sont à la base de bon nombre de manipulations, parmi celles
 	
 	\item \texttt{netstat} :\\
 	La commande netstat est une commande affichant des informations sur les connexions réseau, les tables de routage et un certain nombre de statistiques. 
-	Ces informations epuvent être présenté par  protocole (IP, TCP, UDP, ICMP : netsat -s), être relatives à une interface réseau (netstat -e), aux tables de routage (netstat -r) 
+	Ces informations peuvent être présenté par  protocole (IP, TCP, UDP, ICMP : netsat -s), être relatives à une interface réseau (netstat -e), aux tables de routage (netstat -r) 
 	ou aux connexions actives (netstat -a). D'autres options permettent un filtrage sur les connexions actives (-n = alla active connections, -p = TCP conections, -p UDP = UDP connections).
 	
 	\item \texttt{nslookup} : \\
@@ -126,49 +131,70 @@ Il est important de suivre les manipulations dans l'ordre où elles sont décrit
 
 \subsection{Utilisation d'un PC}
 \subsubsection{Problème à l'arrivée sur la machine}
-L'écran est éteint, la machine ne démarre pas etc
+L'écran est éteint, la machine ne démarre pas etc\\
 
-\subsubsection{Problème pour se connecter sur la machine}
+\soluce Vérifiez que toutes les installation physique de l'ordinateur sont bien en place (câbles connectés, alimentation électrique disponible etc)
+\soluce Essayer d'intervertir une partie du matériel pour vérifier que l'écran fonctionne sur une autre tour, et inversement, que la tour fonctionne sur un autre écran. 
+\subsoluce Dans le cas ou un des matériel se montre défectueux, vous adresser à la DSI pour remplacement du matériel en question.
+\subsoluce Si ceci ne fonctionne toujours pas, contacter directement la DSI
+
+\subsubsection{Problèmes pour se connecter sur la machine}
 A l'entrée des identifiants, la machine refuse le couple identifiant/mot de passe.
+\soluce Essayer d'autres identifiants, ceux d'un collègue par exemple
+\subsoluce Votre collègue peut se logguer, dans ce cas, vous ne disposez pas des accréditations pour vous logguer au sein de l'AIP, veuillez vous référer aux administrateurs.
+\subsoluce Votre collègue ne peux pas se logguer non plus. Vérifiez la connexion des cables ethernet et ressayer. Si le problème persiste, vous référer aux administrateurs.
+
 
 \subsubsection{Impossible d'accéder à internet \& mails}
-Aucune page web ne se charge, les mails ne sont jamais recus ni envoyés.
+Aucune page web ne se charge, les mails ne sont jamais reçus ni envoyés.
+
+\soluce Vérifiez la connexion des câbles Ethernet. 
+\soluce Demandez à vos collègue si ils ont bien accès à internet
+\subsoluce Si ils n'ont pas plus accès à internet, veuillez contacter les administrateurs.
+\subsoluce Si ils ont internet, L'utilisation de l'invite de commande avec "Ping" et "nslookup" peut fournir des informations.
+\begin{itemize}
+	\item ping google.com -> si les paquets sont transmis, vérifier l'état de l'option "travail hors connexion" d'Internet Explorer.
+	\item nslookup -> Si l'adresse indiquée n'est pas celle indiqué sur le plan d'adressage de votre atelier, veuillez contacter les administrateurs.
+\end{itemize}
 
 \subsubsection{Problème liés à l'utilisation d'application avec les plateformes de TP mobiles}
 Un TP requiert que l'on se connecte depuis un des PC de l'AIP et utilise une application spécifique à ce TP. Elle indique des erreur.
+
+\soluce Veuillez verifier la connexion du/des cable(s) Ethernet de la plateforme de TP.
+\soluce Tentez d'accéder à internet (affichage d'une page web par exemple). En cas de poblème, veuillez vous reporter à la section précédente.
+\soluce Demandez à un de vos collègue d'effectuer la même manipulation sur une autre machine.
+\subsoluce Si il parvient à effectuer la manipulation, veuillez vous reporter à l section précédente.
+\subsoluce Si il ne parvient pas à effectuer la manipulation non plus, veuillez contacter les administrateurs.
 		
 \subsection{Utilisation d'une plateforme de TP mobile}
 \subsubsection{La plateforme de TP semble inopérante}
+Les tableaux de contrôles de la plateforme de TP sembles inactifs, les commandes de répondent pas.
+
+\soluce Vérifiez la connexion des câbles d'alimentations de la plateforme de TP.
+\soluce Reportez le TP et faites appel aux administrateurs.
 
 \subsubsection{La plateforme de TP indique des problèmes réseaux}
+\soluce Vérifiez la connexion des câbles Ethernet de la plateforme de TP concernée
+\soluce Vérifiez que d'autres plateformes de présentent pas le même défaut
+\subsoluce Si le problème est visible sur d'autres machines, veuillez contacter les administrateurs.
+
 
 \subsubsection{Les paramètres globaux ne sont pas partagés entre différents sites}
-	%je me pose sur une plateforme de TP
-		%elle ne démarre pas
-		%elle affiche des erreur de réseau
-		%elle m'insulte en allemand
+La plateforme de TP indique que des données globales partagées entre plusieurs plateformes ne sont pas disponibles.
+
+\soluce Verifiez que toutes les machines nécessaires sont alumées.
+\soluce Vérifiez que ces machines n'afichent pas d'erreur, dans ce cas, reportez pas vous a sous-section précédente.
+\soluce Si le problème persiste, veuillez contacter les administrateurs.
 
 \subsection{Utilisation d'un laptop}
 
 \subsubsection{Le laptop ne parvient pas à dialoguer avec les serveurs de l'AIP}
-	%J'utilise mon laptop
-		
-% après voir ecrit cette journée type et les différentes erreurs, il est pratiquement toujours possible de rediriger vers l'une ou l'autre des section suivantes.
+Il est impossible d'utiliser les applications ou récuperer les documents à partir des serveurs de l'AIP
 
-\section{Dépannage d'un PC de gestion de l'AIP}
-%on ecrit une subsection par etape de dépannage
-%l'idée est qu'une fois que le mec à suivi la subsection 1, il passe à la subsection 2 si ca ne marche toujours pas.
-
-\section{Dépannage d'une Plateforme de TP Mobile}
-%on ecrit une subsection par etape de dépannage
-%l'idée est qu'une fois que le mec à suivi la subsection 1, il passe à la subsection 2 si ca ne marche toujours pas.
-
-\section{Dépannage d'un PC personnel et laptop}
-%on ecrit une subsection par etape de dépannage
-%l'idée est qu'une fois que le mec à suivi la subsection 1, il passe à la subsection 2 si ca ne marche toujours pas.
-
-
-
+\soluce Vérifiez que l'ordinateur en question possède bien un accès à internet en ouvrant une page web par exemple.
+\soluce Vérifiez la disponibilité du VPN Client su la machine 
+\subsoluce Dans la barre de tache de windows, vérifiez la présence de l'icône CISCO
+\subsoluce Réinstallez le client VPN.
 
 
 \end{document}
