@@ -49,10 +49,10 @@ L'administrateur dispose de fonctions de gestion de base au travers de différen
 
 Parmi les nombreux outils de supervision nous retenons les suivants :
 \begin{itemize}
-\item \textbf{Nagios} est de surveiller les paquets passant et de notifier l'administrateur en cas de détection de paquets suspects
-\item \textbf{MRTG}\footnote{Multi Routeur Traffic Grapher} est un programmen basé sur le protocole SNMP et collecte des données pour tracer des graphiques représentant le traffic réseau. Cet outil possède l'avantage d'être à la fois simple, libre, multi-plateforme et performant puisque les parties critiques en terme de performance (RDDTools) été écrites en assembleur. MRTG est à installer sur le poste admin et nécessite que le switch/routeur soit équipé de SNMP.
-\item \textbf{Munin} est un outil de monitoring de parc de machines en réseau offrant des représentations visuelles de l'acivité du système, utilisant également RDDTools et sadaptant particulièrement bien aux systèmes Gnu/Linux. Il permet aussi d'envoyer des alertes par mail ou vers Nagios en fonction de seuils d'alerte prédéfinis. L'utilisation de Munin nécessite l'installation d'agents (munin-node) sur les machines à surveiller.
-\item \textbf{CACTI} est un framework sous license GPL centralisant un sensemble d'outils de monitoring réseau. Il dispose de template préconfigurés pour s'adapter rapidement à différentes situations.
+\item \textbf{Nagios} a pour rôle de surveiller les paquets sur le réseau et de notifier l'administrateur en cas de détection de paquets suspects
+\item \textbf{MRTG}\footnote{Multi Routeur Traffic Grapher} est un programme basé sur le protocole SNMP et collecte des données pour tracer des graphiques représentant le traffic réseau. Cet outil possède l'avantage d'être à la fois simple, libre, multi-plateforme et performant puisque les parties critiques en terme de performance (RDDTools) ont été écrites en assembleur. MRTG est à installer sur le poste admin et nécessite que le switch/routeur soit équipé d'agents SNMP.
+\item \textbf{Munin} est un outil de monitoring de parc de machines en réseau offrant des représentations visuelles de l'acivité du système, qui utilise également RDDTools et s'adapte particulièrement bien aux systèmes Gnu/Linux. Il permet aussi d'envoyer des alertes par mail ou vers Nagios en fonction de seuils d'alerte prédéfinis. L'utilisation de Munin nécessite l'installation d'agents (munin-node) sur les machines à surveiller.
+\item \textbf{CACTI} est un framework sous license GPL centralisant un sensemble d'outils de monitoring réseau. Il dispose de templates préconfigurés pour s'adapter rapidement à différentes situations.
 \end{itemize}
 ~\\
 Nous nous limiterons à une solution basée sur Nagios et MRTG pour le monitoring d'un serveur Gnu/Linux, d'un serveur Windows et d'un switch. 
@@ -60,14 +60,14 @@ Nous nous limiterons à une solution basée sur Nagios et MRTG pour le monitorin
 \section{Mise en oeuvre}
 La portée de la supervision du réseau est définie par la position du poste d'administration dans le réseau. En d'autres termes la visibilité du poste de supervision correspond au sous-réseau définit par le premier routeur en amont. Aussi il est important de placer le poste d'administration au dans le même sous-réseau que les machines à surveiller.
 
-L'utilisation de Nagios et MRTG nécessitent l'installation sur le poste d'administration d'un serveur web Afin de bénéficier d'une représentation visuelle de l'activité au niveau système et au niveau réseau. Nous optons pour un serveur Apache.\\
-Il faudra également installer sur chaque machine cible un agent SNMP afin de permettre au logiciel MRTG d'utiliser le protocole SNMP.\\
-Il est également préférable d'installer un serveur SSH sur les machines cibles et un client ssh sur le poste de supervision, permettant aux administrateurs de contrôler les machines à distance et d'effectuer certaines tâches de maintenance et de supervision du système non accessible depuis Nagios et MRTG. 
+L'utilisation de Nagios et MRTG nécessite l'installation sur le poste d'administration d'un serveur web Afin de bénéficier d'une représentation visuelle de l'activité au niveau système et au niveau réseau. Nous préconisons un serveur Apache.\\
+Il faudra également installer sur chaque machine cible un agent SNMP afin de permettre au logiciel MRTG d'utiliser le protocole.\\
+Il est aussi préférable d'installer un serveur SSH sur les machines cibles et un client ssh sur le poste de supervision, permettant aux administrateurs de contrôler les machines à distance et d'effectuer certaines tâches de maintenance et de supervision du système non accessible depuis Nagios et MRTG. 
 Nous optons pour OpenSSH sur les systèmes Gnu/Linux et Putty sur les plateformes Windows. 
 \section{Procédures d'intervention}
 %oh merde j'avais oublié cette partie X_x
 %bon, pipo mod on !
 
-Lorsque Nagios détecte une anomalie, il notifie l'administateur (par envoi de mail ou par SMS), qui dans un premier temps utilisera les outils de supervisions mis en places pour cerner l'origine et peut être la cause du problème, et pourra dans un second temps intervenir à distance via SSH sur les machines concernées, réaliser une intervention physique, ou encore contacter les administrateurs du réseau RENATER si la source du problème dépasse la portée de son réseau.
+Lorsque Nagios détecte une anomalie, il notifie l'administateur (par envoi de mail ou par SMS), qui dans un premier temps utilisera les outils de supervisions mis en place pour cerner l'origine et peut-être la cause du problème. Il pourra dans un second temps intervenir à distance via SSH sur les machines concernées, réaliser une intervention physique, ou encore contacter les administrateurs du réseau RENATER si la source du problème dépasse la portée de son réseau.
 
 \end{document}
