@@ -61,10 +61,10 @@ Pour y accéder :
 \subsubsection{Commandes courantes}
 Certaines commandes sont à la base de bon nombre de manipulations, parmi celles-ci : 
 	\begin{itemize}
-	\item \texttt{echo} : permet de renvoyer des caractères au système source.\\
+	\item \texttt{echo} : permet de renvoyer des caractères au système source.
 		
 	\item \texttt{ipconfig} (ou \texttt{ifconfig} sous Linux) : \\
-	Cette commande permet de récupérer les informations de configuration de la machine : \\
+	Cette commande permet de récupérer les informations de configuration de la machine : 
 		\begin{itemize}
 		\item[•]Identification physique : liste des interfaces, adresses MAC et type de matériel.
 		\item[•]Identification logique : nom de la machine, adresses IP.
@@ -99,78 +99,71 @@ Certaines commandes sont à la base de bon nombre de manipulations, parmi celles
 Les clients VPN sont des utilitaires qui permettent à des machines distantes d'être virtuellement connectées au réseau de l'AIP.\\
 Normalement, ce client est installé de base sur la machine mise à disposition des membres de l'AIP. Il est également possible de le télécharger, toutefois, cette étape ne sera pas détaillée ici.
 
-\subsubsection{Autres utilitaires}
-(Voir ce qu'on peut mettre ici)
-
 
 \section{Protocole opératoire}
-% montrer qu'il devra suivre un protocol sous forme d'arbre, le guider autant que possible
-%a chaque observation, on elague une partie de l'arbre, et on le guide vers la suite.
-
-%lui expliquer également que si à la fin (et à la fin uniquement) de ces procédures, sont problème reste sans réponse, il doit contacter les admins à lyon.
 Comme expliqué en introduction, certaines interventions devront être effectuées par les utilisateurs courants de l'AIP.\\
 Afin de simplifier ces interventions, une procédure va être mise en place. Toutes se dérouleront sur le même principe : 
 \begin{enumerate}
-	\item \textbf{Détermination de la plateforme impactée} Il s'agit la de déterminer quelle segment de l'installation est en défaut. Pour cela, un certain nombre d'étape simple seront effectuées pour obtenir les éléments de décisions.
-	\item \textbf{Recherche de solution} En fonctions des éléments relevés dans l'étape précédente, un redirections vers la section de solution concernée sera effectuée.
-	\item \textbf{Nouvelle tentative} Une nouvelle tentative doit être effectuée. Si le problème persiste, réessayer de suivre cette procédure de nouveau.
+	\item \textbf{Détermination de la plateforme impactée} Il s'agit là de déterminer quel segment de l'installation est en défaut. Pour cela, un certain nombre d'étapes simples seront effectuées pour obtenir les éléments de décision.
+	\item \textbf{Recherche de solution} En fonction des éléments relevés dans l'étape précédente, une redirection vers la section de solution concernée sera effectuée.
+	\item \textbf{Nouvelle tentative} Une nouvelle tentative doit être effectuée. Si le problème persiste, essayez de suivre cette procédure de nouveau.
 	\item \textbf{Appel au central} En cas d'absence de solution en suivant les procédures définies dans ce document, l'appel au central de Lyon peut être une solution.
 \end{enumerate}
 
 \section{Détermination de la plateforme impactée}
-Afin de déterminer quelle est la portions de l'installation impactée par la panne, une journée type sera retracée. Essayer de répéter les manipulations comme décrite jusqu'à apparition du problème.\\
+Afin de déterminer quelle est la portion de l'installation impactée par la panne, une journée type sera retracée. Essayer de répéter les manipulations comme décrites jusqu'à apparition du problème.\\
 Trois utilisations classiques sont prévues : 
 \begin{itemize}
 	\item \textbf{Utilisation d'un PC}
 	\item \textbf{Utilisation d'une plateforme de TP mobile}
-	\item \textbf{Utilisation d'un laptop}
+	\item \textbf{Utilisation d'un ordinateur portable}
 \end{itemize}
 
-Il est important de suivre les manipulations dans l'ordre où elles sont décrite, car même si la panne est visible sur une machine, elle vient peut être d'une autre installation.
+Il est important de suivre les manipulations dans l'ordre où elles sont décrites, car même si la panne est visible sur une machine, elle vient peut être d'une autre installation.
 
 
 \subsection{Utilisation d'un PC}
 \subsubsection{Problème à l'arrivée sur la machine}
-L'écran est éteint, la machine ne démarre pas etc\\
+L'écran est éteint, la machine ne démarre pas, etc. \\
 
-\soluce Vérifiez que toutes les installation physique de l'ordinateur sont bien en place (câbles connectés, alimentation électrique disponible etc)
-\soluce Essayer d'intervertir une partie du matériel pour vérifier que l'écran fonctionne sur une autre tour, et inversement, que la tour fonctionne sur un autre écran. 
-\subsoluce Dans le cas ou un des matériel se montre défectueux, vous adresser à la DSI pour remplacement du matériel en question.
-\subsoluce Si ceci ne fonctionne toujours pas, contacter directement la DSI
+\soluce Vérifiez que toutes les installations physiques de l'ordinateur sont bien en place (câbles connectés, alimentation électrique disponible, etc). 
+\soluce Essayez d'intervertir une partie du matériel pour vérifier que l'écran fonctionne sur une autre tour, et inversement, que la tour fonctionne sur un autre écran. 
+\subsoluce Dans le cas où l'un des matériels se montre défectueux, adressez-vous à la DSI pour remplacement du matériel en question.
+\subsoluce Si cela ne fonctionne toujours pas, contacter directement la DSI
 
 \subsubsection{Problèmes pour se connecter sur la machine}
-A l'entrée des identifiants, la machine refuse le couple identifiant/mot de passe.
-\soluce Essayer d'autres identifiants, ceux d'un collègue par exemple
-\subsoluce Votre collègue peut se logguer, dans ce cas, vous ne disposez pas des accréditations pour vous logguer au sein de l'AIP, veuillez vous référer aux administrateurs.
-\subsoluce Votre collègue ne peux pas se logguer non plus. Vérifiez la connexion des cables ethernet et ressayer. Si le problème persiste, vous référer aux administrateurs.
+À l'entrée des identifiants, la machine refuse le couple identifiant/mot de passe.
+\soluce Essayez d'autres identifiants, ceux d'un collègue par exemple. 
+\subsoluce Votre collègue peut s'identifier, dans ce cas, vous ne disposez pas des accréditations nécessaires pour vous identifier au sein de l'AIP, veuillez vous référer aux administrateurs.
+\subsoluce Votre collègue ne peut pas s'identifier non plus. Vérifiez la connexion des câbles Ethernet et réessayez. Si le problème persiste, référez-vous aux administrateurs.
 
 
-\subsubsection{Impossible d'accéder à internet \& mails}
-Aucune page web ne se charge, les mails ne sont jamais reçus ni envoyés.
+\subsubsection{Impossible d'accéder à internet \& emails}
+Aucune page web ne se charge, les emails ne sont jamais reçus ni envoyés.
 
 \soluce Vérifiez la connexion des câbles Ethernet. 
-\soluce Demandez à vos collègue si ils ont bien accès à internet
+\soluce Demandez à vos collègues si ils ont bien accès à internet. 
 \subsoluce Si ils n'ont pas plus accès à internet, veuillez contacter les administrateurs.
-\subsoluce Si ils ont internet, L'utilisation de l'invite de commande avec "Ping" et "nslookup" peut fournir des informations.
+\subsoluce Si ils ont internet, l'utilisation de l'invite de commande avec "ping" et "nslookup" peut fournir des informations.
 \begin{itemize}
 	\item ping google.com -> si les paquets sont transmis, vérifier l'état de l'option "travail hors connexion" d'Internet Explorer.
 	\item nslookup -> Si l'adresse indiquée n'est pas celle indiqué sur le plan d'adressage de votre atelier, veuillez contacter les administrateurs.
 \end{itemize}
 
-\subsubsection{Problème liés à l'utilisation d'application avec les plateformes de TP mobiles}
-Un TP requiert que l'on se connecte depuis un des PC de l'AIP et utilise une application spécifique à ce TP. Elle indique des erreur.
+\subsubsection{Problèmes liés à l'utilisation d'applications avec les plateformes de TP mobiles}
+Un TP requiert que l'on se connecte depuis un des PC de l'AIP et utilise une application spécifique à ce TP. Elle indique des erreurs.
 
-\soluce Veuillez verifier la connexion du/des cable(s) Ethernet de la plateforme de TP.
-\soluce Tentez d'accéder à internet (affichage d'une page web par exemple). En cas de poblème, veuillez vous reporter à la section précédente.
+\soluce Veuillez vérifier la connexion du/des câble(s) Ethernet de la plateforme de TP.
+\soluce Tentez d'accéder à internet (affichage d'une page web par exemple). En cas de problème, veuillez vous reporter à la section précédente.
 \soluce Demandez à un de vos collègue d'effectuer la même manipulation sur une autre machine.
-\subsoluce Si il parvient à effectuer la manipulation, veuillez vous reporter à l section précédente.
+\subsoluce Si il parvient à effectuer la manipulation, veuillez vous reporter à la section précédente.
 \subsoluce Si il ne parvient pas à effectuer la manipulation non plus, veuillez contacter les administrateurs.
 		
 \subsection{Utilisation d'une plateforme de TP mobile}
 \subsubsection{La plateforme de TP semble inopérante}
-Les tableaux de contrôles de la plateforme de TP sembles inactifs, les commandes de répondent pas.
+Les tableaux de contrôles de la plateforme de TP semblent inactifs, les commandes ne répondent pas. 
 
-\soluce Vérifiez la connexion des câbles d'alimentations de la plateforme de TP.
+\soluce Vérifiez la connexion des câbles d'alimentation de la plateforme de TP.
 \soluce Reportez le TP et faites appel aux administrateurs.
 
 \subsubsection{La plateforme de TP indique des problèmes réseaux}
@@ -182,18 +175,18 @@ Les tableaux de contrôles de la plateforme de TP sembles inactifs, les commande
 \subsubsection{Les paramètres globaux ne sont pas partagés entre différents sites}
 La plateforme de TP indique que des données globales partagées entre plusieurs plateformes ne sont pas disponibles.
 
-\soluce Verifiez que toutes les machines nécessaires sont alumées.
-\soluce Vérifiez que ces machines n'afichent pas d'erreur, dans ce cas, reportez pas vous a sous-section précédente.
+\soluce Vérifiez que toutes les machines nécessaires sont allumées.
+\soluce Vérifiez que ces machines n'affichent pas d'erreur, dans ce cas, reportez pas vous à la sous-section précédente.
 \soluce Si le problème persiste, veuillez contacter les administrateurs.
 
-\subsection{Utilisation d'un laptop}
+\subsection{Utilisation d'un ordinateur portable}
 
-\subsubsection{Le laptop ne parvient pas à dialoguer avec les serveurs de l'AIP}
-Il est impossible d'utiliser les applications ou récuperer les documents à partir des serveurs de l'AIP
+\subsubsection{L'ordinateur portable ne parvient pas à dialoguer avec les serveurs de l'AIP}
+Il est impossible d'utiliser les applications ou récuperer les documents à partir des serveurs de l'AIP. 
 
-\soluce Vérifiez que l'ordinateur en question possède bien un accès à internet en ouvrant une page web par exemple.
-\soluce Vérifiez la disponibilité du VPN Client su la machine 
-\subsoluce Dans la barre de tache de windows, vérifiez la présence de l'icône CISCO
+\soluce Vérifiez que l'ordinateur en question possède bien un accès à internet, en ouvrant une page web par exemple.
+\soluce Vérifiez la disponibilité du VPN Client sur la machine. 
+\subsoluce Dans la barre de tâches de Windows, vérifiez la présence de l'icône CISCO. 
 \subsoluce Réinstallez le client VPN.
 
 

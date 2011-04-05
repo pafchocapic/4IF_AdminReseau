@@ -34,16 +34,16 @@
 
 \subsubsection{Politique de nommage}
 
-L'objectif est ici de pouvoir retrouver à partir du nom de la machine emetrice ou cette dernière se trouve et quelle est son type / rôle au sein du réseau, afin de pouvoir faciliter la maintenance opérationelle du réseau AIP. Cetteconvention devra cependant se réveller suffisament flexible pour coller à toutes les configurations possibles.
+L'objectif est ici de pouvoir retrouver à partir du nom de la machine émettrice où cette dernière se trouve et quelle est son type / rôle au sein du réseau, afin de pouvoir faciliter la maintenance opérationelle du réseau AIP. Cette convention devra cependant se révéler suffisament flexible pour coller à toutes les configurations possibles.
 
 Afin de répondre à cette problématique, nous choisissions une politique de nommage en 4 champs : 
 
 \begin{itemize}
-\item Prefixe
+\item Préfixe
 \item Campus
 \item Site
-\item TypeMachine
-\item Identifiant unique machine (optionel)
+\item Type Machine
+\item Identifiant unique machine (optionnel)
 \end{itemize}
 
 \paragraph{Préfixe}
@@ -53,13 +53,13 @@ Le préfixe sera toujours AIP, pour permettre d'identifier les noms appartenant 
 Il s'agit de l'identifiant unique du campus, ce qui dans notre cas pourra être INSA ou ROANNE
 
 \paragraph{Site}
-Identifiant unique du Site de l'AIP, se référant au nom du batiment hébergeant l'atelier et éventuellement un identifiant numérique au cas ou le batiment héberge plusieurs ateliers. 
+Identifiant unique du Site de l'AIP, se référant au nom du bâtiment hébergeant l'atelier et éventuellement un identifiant numérique au cas où le bâtiment héberge plusieurs ateliers. 
 
-\paragraph{TypeMachine}
+\paragraph{Type Machine}
 
-\subparagraph{Equipement d'infrastructure}
+\subparagraph{Équipement d'infrastructure}
 
-Son identifant de type sera le service qu'il fournit à l'architecture (EX : Video, DHCP, DNS, RVPN etc...)
+Son identifant de type sera le service qu'il fournit à l'architecture (EX : Vidéo, DHCP, DNS, RVPN etc...)
 
 \subparagraph{Poste}
 
@@ -75,9 +75,9 @@ Identifiant numérique unique du poste. Dans le cas des automates, le numéro d'
 \subsubsection{Organisation du service DNS inter-site}
 
 \paragraph{Architecture des DNS du VPN}
-Chaque serveur DNS par site fait autorité sur le site qu'il occupe, et redi
+Chaque serveur DNS par site fait autorité sur le site qu'il occupe, et redirige les requêtes en cas d'absence de réponse vers le DNS de Jacquard.
 Nous définissons le DNS root du VPN comme étant celui de Lyon Jacquard,pour la gestion des connexions extérieures,
-cela implique une réplication des informations DNS des éléments architecturaux de chaque sous réseau sur ce dernier.
+cela implique une réplication des informations DNS des éléments architecturaux de chaque sous-réseau sur ce dernier.
 
 \subsubsection{Configuration détaillée des annuaires}
 
@@ -100,10 +100,10 @@ Nous allons spécifier les entrées DNS à renseigner dans l'annuaire.
 
 \subsubsection{Site Lyon : AIP Bat Jacquard }
 
-\paragraph{Plages IP addressables :} 
+\paragraph{Plages IP adressables :} 
 \begin{itemize}
-\item[10.1.1.2 à 10.1.1.253] Plages postes
-\item[10.1.2.2 à 10.1.2.253] Plages Automates
+\item[10.1.1.2 à 10.1.1.253] Plage postes
+\item[10.1.2.2 à 10.1.2.253] Plage Automates
 \end{itemize}
 
 
@@ -127,7 +127,7 @@ Nous allons spécifier les entrées DNS à renseigner dans l'annuaire.
 \item[Adresse broadcast]: 10.1.1.255
 \item[Masque de sous réseau]: 255.255.255.0
 \item[Durée du Bail Long]: 87\% du temps utile
-\item[Durée du Bail court]: 50\% du tempsutie
+\item[Durée du Bail court]: 50\% du temps utile
 \item[Routeur (passerelle)]: 10.1.0.1
 \item[Adresse DNS]: 10.1.0.3
 \end{itemize}
@@ -138,12 +138,12 @@ Nous allons spécifier les entrées DNS à renseigner dans l'annuaire.
 \item[Adresse broadcast]: 10.1.2.255
 \item[Masque de sous réseau]: 255.255.255.0
 \item[Durée du Bail Long]: 87\% du temps utile
-\item[Durée du Bail court]: 50\% du temps utie
+\item[Durée du Bail court]: 50\% du temps utile
 \item[Routeur (passerelle)]: 10.1.0.1
 \item[Adresse DNS]: 10.1.0.3
 \end{itemize}
 
-\subsubsection{Site Lyon : AIP Bat Ferrié}
+\subsubsection{Site Lyon : AIP Bat. Ferrié}
 
 \paragraph{Plages IP adressables :} 
 \begin{itemize}
@@ -164,22 +164,22 @@ Nous allons spécifier les entrées DNS à renseigner dans l'annuaire.
 \item[Adresse DNS]: 10.2.0.3
 \end{itemize}
 
-\subparagraph{Sous Réseau salles}
+\subparagraph{Sous-Réseau salles}
 \begin{itemize}
 \item[Adresse réseau]: 10.2.1.0
 \item[Adresse broadcast]: 10.2.1.255
 \item[Masque de sous réseau]: 255.255.255.0
 \item[Durée du Bail Long]: 87\% du temps utile
-\item[Durée du Bail court]: 50\% du tempsutie
+\item[Durée du Bail court]: 50\% du temps utile
 \item[Routeur (passerelle)]: 10.2.0.1
 \item[Adresse DNS]: 10.2.0.3
 \end{itemize}
 
-\subparagraph{Sous réseau automates}
+\subparagraph{Sous-réseau automates}
 \begin{itemize}
 \item[Adresse réseau]: 10.2.2.0
 \item[Adresse broadcast]: 10.2.2.255
-\item[Masque de sous réseau]: 255.255.255.0
+\item[Masque de sous-réseau]: 255.255.255.0
 \item[Durée du Bail Long]: 87\% du temps utile
 \item[Durée du Bail court]: 50\% du tempsutie
 \item[Routeur (passerelle)]: 10.2.0.1
@@ -188,7 +188,7 @@ Nous allons spécifier les entrées DNS à renseigner dans l'annuaire.
 
 \subsubsection{Site Roanne : IUT}
 
-\paragraph{Plages IP addressables :} 
+\paragraph{Plages IP adressables :} 
 \begin{itemize}
 \item[10.3.1.2 à 10.3.1.253]
 \item[10.3.2.2 à 10.3.2.253]
@@ -207,39 +207,39 @@ Nous allons spécifier les entrées DNS à renseigner dans l'annuaire.
 \item[Adresse DNS]: 10.3.0.3
 \end{itemize}
 
-\subparagraph{Sous Réseau salles}
+\subparagraph{Sous-Réseau salles}
 \begin{itemize}
 \item[Adresse réseau]: 10.3.1.0
 \item[Adresse broadcast]: 10.3.1.255
-\item[Masque de sous réseau]: 255.255.255.0
+\item[Masque de sous-réseau]: 255.255.255.0
 \item[Durée du Bail Long]: 87\% du temps utile
-\item[Durée du Bail court]: 50\% du tempsutie
+\item[Durée du Bail court]: 50\% du temps utile
 \item[Routeur (passerelle)]: 10.3.0.1
 \item[Adresse DNS]: 10.3.0.3
 \end{itemize}
 
-\subparagraph{Sous réseau automates}
+\subparagraph{Sous-réseau automates}
 \begin{itemize}
 \item[Adresse réseau]: 10.3.2.0
 \item[Adresse broadcast]: 10.3.2.255
 \item[Masque de sous réseau]: 255.255.255.0
 \item[Durée du Bail Long]: 87\% du temps utile
-\item[Durée du Bail court]: 50\% du tempsutie
+\item[Durée du Bail court]: 50\% du temps utile
 \item[Routeur (passerelle)]: 10.3.0.1
 \item[Adresse DNS]: 10.3.0.3
 \end{itemize}
 
 \subsection{Politique d'affectation d'IP par site}
 
-Chaque site est équipé de deux sous réseaux, l'un destiné aux postes de types PC destinés au cours et l'autre destiné à l'affectation d'automates. Un problème se pose donc au niveau du DHCP quant à l'affectation dans tel où tel sous réseau de la machine ayant émis la requête.\\
-Nous faisons donc l'hypothèse, en accord avec l'équipe enseignante, que les automates possèdent chacun un fichier de configuration éditable par les administrateurs, contenant l'adresse fixée (dans le sous réseau automates du site) souhaitée et le nom DNS cohérent, qui seront transmises dans la trame DHCPREQUEST.\\
-Ainsi si l'IP est disponible ( assertion au préalable vérifiée par le serveur DHCP :=) ) elle sera affectée dans un bail soumis à la machine demande, comme spécifié dans le fonctionnement du DHCP.\\
+Chaque site est équipé de deux sous-réseaux, l'un destiné aux postes de type PC destinés au cours et l'autre destiné à l'affectation d'automates. Un problème se pose donc au niveau du DHCP lors de l'affectation dans tel où tel sous réseau de la machine ayant émis la requête.\\
+Nous faisons donc l'hypothèse, en accord avec l'équipe enseignante, que les automates possèdent chacun un fichier de configuration éditable par les administrateurs, contenant l'adresse fixée (dans le sous-réseau automate du site) souhaitée et le nom DNS cohérent, qui seront transmises dans la trame DHCPREQUEST.\\
+Ainsi si l'IP est disponible ( assertion au préalable vérifiée par le serveur DHCP ) elle sera affectée dans un bail soumis à la machine demandée, comme spécifié dans le fonctionnement du DHCP.\\
 Dans le cas contraire, l'affectation est refusée et l'automate procédera à des demandes à intervalle régulier jusqu'à ce qu'il obtienne ce qu'il désire.\\
-Notons bien que la plage d'adressage des sous réseaux automates est différente en fonction du site, ainsi en cas de déplacement il sera obligatoire de recréer un fichier de configuration par site avant la première connexion du dispositif. 
+Notons bien que la plage d'adressage des sous-réseaux automates est différente en fonction du site, ainsi en cas de déplacement il sera obligatoire de recréer un fichier de configuration par site avant la première connexion du dispositif. 
 
 \subsection{Gestion d'annuaires utilisateur LDAP}
 
-Afin de garantir une qualité de service et une utilisabilté même si le site de Lyon-Jacquard est injoignable par réseau, nous décidons d'appliquer une politique de réplication d'un groupe LDAP d'utilisateurs autorisés à utiliser les équipements de l'AIP, sur les trois annuaires LDAP actuellement en fonction sur les campus équipés d'installations AIP.
+Afin de garantir une qualité de service et une utilisabilité même si le site de Lyon-Jacquard est injoignable par réseau, nous décidons d'appliquer une politique de réplication d'un groupe LDAP d'utilisateurs autorisés à utiliser les équipements de l'AIP, sur les trois annuaires LDAP actuellement en fonction sur les campus équipés d'installations AIP.
 
 \section{Tutoriel de maintenance}
 
@@ -263,31 +263,31 @@ Afin de garantir une qualité de service et une utilisabilté même si le site d
 \includegraphics[scale=0.6]{SiteRoanne.png}
 \end{center}
 
-\subsection{Comment ajouter une machine type P.C sur le réseau ?}
+\subsection{Comment ajouter une machine type P.C. sur le réseau ?}
 
-L'objectif ici est de rajouter une marchine de type poste de travail sur le réseau.
+L'objectif ici est de rajouter une machine de type poste de travail sur le réseau.
 
 \subsubsection{Restauration d'une configuration standard sur le poste}
 
-Via l'utilisation des outils d'administration mis à disposition par l'équipe responsable de cetta activité au sein de l'institution, restaurer une image propre et vierge d'un poste de travail standard.
+Via l'utilisation des outils d'administration mis à disposition par l'équipe responsable de cette activité au sein de l'institution, restaurer une image propre et vierge d'un poste de travail standard.
 
 \subsubsection{Création d'une entrée dans l'annuaire DNS}
 
-Editer le fichier d'annuaire du serveur DNS via un éditeur de texte console.
+Éditer le fichier d'annuaire du serveur DNS via un éditeur de texte console.
 Rajouter la ligne contenant la correspondance MAC - NomDeMachine cohérente au plan de nommage défini un peu plus haut dans ce 
 manuel.
 
 \subsubsection{Création d'une entrée dans l'annuaire LDAP du campus}
 
-Effectuer une demande de création de machine dans l'annuaire LDAP dans le bon groupe (AIP), puis faites preuve de beaucoup de patience :-).
+Effectuer une demande de création de machine dans l'annuaire LDAP dans le bon groupe (AIP), puis faites preuve de beaucoup de patience.
 
 \subsubsection{Branchement de la machine au réseau sur site}
 Tout est dans le titre.
 
 \subsubsection{Bind de la machine au LDAP du campus}
 
-Une fois la réponse de la DSI de campus reçue, effectuez les opérations de bind à l'anuaire LDAP  (activation de Kerberos, authentification LDAP, management des homes utilisateur à distance en accord avec la politique de la DSI).\\
-La marche à suivre n'est pas détaillée ici, car trop dépendante de l'OS utilisé :-)
+Une fois la réponse de la DSI de campus reçue, effectuez les opérations de bind à l'annuaire LDAP  (activation de Kerberos, authentification LDAP, management des dossiers utilisateur à distance en accord avec la politique de la DSI).\\
+La marche à suivre n'est pas détaillée ici, car trop dépendante de l'OS utilisée.
 
 \subsubsection{Opérations de vérification}
 
@@ -295,13 +295,13 @@ La marche à suivre n'est pas détaillée ici, car trop dépendante de l'OS util
 
 \begin{enumerate}
 \item Ouvrir un invite de commande / shell
-\item Vérification de la configuraiton de eth0 par la commande ipconfig / ifconfig. Si une adresse est attribuée à  la machine, alors le test est validé . 
-\item Lancer un ping sur la passerelle 10.x.1.1 ( x étant dépendant du site 1 Jacquard 2 Ferrié 3 Roanne) pour vérifier 
-\item Lancer un traceroute sur une adresse internet quelconque pour vérifier l'état de l'accès internet et vérifier le bon routage des paquets à destinations de l'exterieur
+\item Vérification de la configuraiton de eth0 par la commande ipconfig / ifconfig. Si une adresse est attribuée à la machine, alors le test est validé . 
+\item Lancer un ping sur la passerelle 10.x.1.1 ( x étant dépendant du site 1 Jacquard 2 Ferrié 3 Roanne) pour vérifier. 
+\item Lancer un traceroute sur une adresse internet quelconque pour vérifier l'état de l'accès internet et vérifier le bon routage des paquets à destinations de l'extérieur.
 \item Lancer un traceroute sur une machine distance appartenant au VPN pour vérifier le bon fonctionnement de ce dernier.
 \end{enumerate}
 
-\subsection{Comment supprimer une machine type P.C sur le réseau ?}
+\subsection{Comment supprimer une machine type P.C. sur le réseau ?}
 
 \subsubsection{Suppression de l'entrée LDAP de la machine}
 
@@ -309,7 +309,7 @@ Faites la demande à la DSI du campus.
 
 \subsubsection{Suppression de l'entrée DNS de la machine}
 
-Supprimez la bonne ligne dans le fichier de conf du serveur DNS.
+Supprimez la bonne ligne dans le fichier de configuration du serveur DNS.
 
 \subsection{Comment ajouter une plateforme de TP  ?}
 
@@ -332,7 +332,7 @@ Effectuez les vérifications avec les médias disponibles sur l'automate...
 
 \subsection{Comment supprimer une plateforme de TP définitivement ?}
 
-\subsubsection{Suppression de l'entrée DNS}
+\subsubsection{Suppression de l'entrée DNS}	
 
 Idem qu'un poste PC.
 
@@ -340,10 +340,10 @@ Idem qu'un poste PC.
 
 \subsubsection{Sur le site de départ}
 
-Seule les manipulations de cablage sont à effectuer pour le déplacement d'un automate
+Seule les manipulations de cablage sont à effectuer pour le déplacement d'un automate.
 
 \subsubsection{Sur le site de déplacement}
 
-Créer ou réutiliser un fichier de conf cohérent avec le plan d'adressage du site et le déployer sur l'automate concerné.
+Créer ou réutiliser un fichier de configuration cohérent avec le plan d'adressage du site et le déployer sur l'automate concerné.
 
 \end{document}
