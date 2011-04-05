@@ -30,7 +30,35 @@
 
 \section{Spécification détaillée de l'architecture}
 	\subsection{Définition des matériels}
-	Gruck
+	L'installation vise à s'insérer au mieux dans les réseaux existants. Cependant quelques matériels particulier devront être achetés.
+	\subsubsection{Routeurs VPN}
+Ils sont à la base de l'architecture et sont situés à l'entrée de chacun des sites de l'AIP.
+Ils permettent les communications sécurisées site à site, mais également les communications vers un PC distant.
+\paragraph{Matériel envisagé}
+Le matériel proposé dans les documentations fournies peut convenir. En effet, il permet l'utilisation de VPN sur deux protocoles différents : 
+\begin{itemize}
+	\item{VPN de PPTP} Ce mode est intégré à Windows par l'utilisation de Radius.
+	\item{VPN L2TP IPSEC} Ce mode de fonctionement ne propose pas d'outils de QoS ce qui empêche toute utilisation de ce mode pour la VoIP ou visioconférence.
+\end{itemize}
+
+	\subsubsection{Switchs VLAN}
+Ces switchs permettent d'isoler les équipements qui peuvent inonder le réseau. Ainsi, les plateformes de TP qui utilisent le broadcast UDP peuvent être isolées dans un sous-réseau, tout en restant accessibles depuis l'extérieur.
+	
+	\subsubsection{Switchs conventionnels}
+Ces switchs permettent juste de connecter l'ensemble des machines de l'AIP. Ils n'ont aucune intelligence propre.
+	
+	\subsubsection{Serveur DHCP}
+Le serveur DHCP aura pour rôle l'attribution des adresses ip aux divers machines qui seront connectées. Les IP seront établies en fonctions du rôle et de la nature de la machine à connecter.
+
+	\subsubsection{Dimensionnement}
+Pour le dimensionement de ces équipements, nous nous limiterons à une gamme. En effet, les prestataire d'interventions dimensionnent eux-mêmes ces installation.\\
+Au vue de la documentation fournie., plusieurs choix peuvent être faits : 
+\begin{itemize}
+	\item \textbf{Routeurs VPN} La Gamme S@n convient à l'utilisation VPN que l'on aura de ces routeurs.
+	\item \textbf{Switchs VLAN} Nous utiliserons les VLAN proposés par Schneider Electric de la gamme ConneXium parametrables. 
+	\item \textbf{Switchs conventionnels} Nous utiliseront ceux de la même gamme ConneXium non paramétrables cette fois ci. 
+	\item \textbf{Serveurs DHCP} Cette fonctionnalité est très légère et ne nécessite pas d'infrastructure lourde. Le dimensionnement de cette machine ne sera pas abordé ici.
+\end{itemize}
 	
 	\subsection{Construction du plan d'adressage}
 	Juju
@@ -39,7 +67,7 @@
 %	Armand et Nicolas
 
 \subsection{Objectifs}
-La supervision d'éléments d'un réseau répond à plusieurs enjeux que l'OSI regroupe en cinq domaines : la gestion des pannes, de la configuration, de la comptabilité, des performances, et de lasécurité. Ces enjeux visent à assurer les exigences de fiabilité et garantir une visibilité sur les activités du réseau.  
+La supervision d'éléments d'un réseau répond à plusieurs enjeux que l'OSI regroupe en cinq domaines : la gestion des pannes, de la configuration, de la comptabilité, des performances, et de la sécurité. Ces enjeux visent à assurer les exigences de fiabilité et garantir une visibilité sur les activités du réseau.  
 
 \subsection{Outils disponibles}
 
@@ -47,14 +75,14 @@ Afin de mettre en place les solutions de supervision du réseau nous disposons d
 
 \subsubsection{Protocoles}
 
-OL'administrateur dispose de fonctions de gestion de base au travers de différents protocoles :
+L'administrateur dispose de fonctions de gestion de base au travers de différents protocoles :
 \begin{itemize}
 \item le protocole \textbf{ICMP} qui permet entre autres de tester la connectivité des machines et d'évaluer leur temps réponse. C'est le protocole permettant entre autres de réaliser une opération très simple (et très utile) : le ping. 
-\item le protocole \textbf{SNMP} permet d'effectuer des mesures de capacités (mémoire vide, espace disque, charge processeur..) ainsi que des mesures de bande passante et de la métrologie applicative et détection d'intrusion (IDS). Ce protocole se base sur l'utilisation de MIBs\footnote{Management Information Base} qui les informations liées à l'utilisation du système et du réseau sous forme hiérarchisées. Une MIB peut être intérogée par le protocole SNMP. L'utilisation du protocole nécessite donc l'installation d'agents sur les machines hôtes.
+\item le protocole \textbf{SNMP} permet d'effectuer des mesures de capacités (mémoire vide, espace disque, charge processeur..) ainsi que des mesures de bande passante et de la métrologie applicative et détection d'intrusion (IDS). Ce protocole se base sur l'utilisation de MIBs\footnote{Management Information Base} qui les informations liées à l'utilisation du système et du réseau sous forme hiérarchisées. Une MIB peut être interrogée par le protocole SNMP. L'utilisation du protocole nécessite donc l'installation d'agents sur les machines hôtes.
 \item le protocole \textbf{RMON} permet de dresser des statistiques et un historique des flux de données du réseau, par opposition à SNMP qui est centré sur les activités au niveau de chaque machine.
 \end{itemize}
 
-\subsubsection{logiciels}
+\subsubsection{Logiciels}
 
 Parmi les nombreux outils de supervision nous retenons les suivants :
 \begin{itemize}
@@ -64,7 +92,7 @@ Parmi les nombreux outils de supervision nous retenons les suivants :
 \item \textbf{CACTI} est un framework sous license GPL centralisant un sensemble d'outils de monitoring réseau. Il dispose de template préconfigurés pour s'adapter rapidement à différentes situations.
 \end{itemize}
 ~\\
-Nous nous limiterons à une solution basée sur Nagios et MRTG pour le monitoring d'un serveur Gnu/Linux, d'un seveur Windows et d'un switch. 
+Nous nous limiterons à une solution basée sur Nagios et MRTG pour le monitoring d'un serveur Gnu/Linux, d'un serveur Windows et d'un switch. 
 
 \subsection{Mise en oeuvre}
 La portée de la supervision du réseau est définie par la position du poste d'administration dans le réseau. En d'autres termes la visibilité du poste de supervision correspond au sous-réseau définit par le premier routeur en amont. Aussi il est important de placer le poste d'administration au dans le même sous-réseau que les machines à surveiller.
@@ -73,7 +101,7 @@ L'utilisation de Nagios et MRTG nécessitent l'installation sur le poste d'admin
 Il faudra également installer sur chaque machine cible un agent SNMP afin de permettre au logiciel MRTG d'utiliser le protocole SNMP.\\
 Il est également préférable d'installer un serveur SSH sur les machines cibles et un client ssh sur le poste de supervision, permettant aux administrateurs de contrôler les machines à distance et d'effectuer certaines tâches de maintenance et de supervision du système non accessible depuis Nagios et MRTG. 
 Nous optons pour OpenSSH sur les systèmes Gnu/Linux et Putty sur les plateformes Windows. 
-\subsection{Précédures d'intervention}
+\subsection{Procédures d'intervention}
 %oh merde j'avais oublié cette partie X_x
 %bon, pipo mod on !
 
