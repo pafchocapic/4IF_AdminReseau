@@ -12,7 +12,7 @@
 	\vfill
 	\begin{center}
 		\begin{Huge}
-			Projet Administration Réseau : \\ Configuration des éléments de la solution\\
+			Projet Administration Réseau : \\ Cahier de supervision\\
 		\end{Huge}
 	\vfill
 		\textbf{Hexanôme 4211 :} 
@@ -28,50 +28,15 @@
 \tableofcontents
 \newpage
 
-\section{Spécification détaillée de l'architecture}
-	\subsection{Définition des matériels}
-	L'installation vise à s'insérer au mieux dans les réseaux existants. Cependant quelques matériels particulier devront être achetés.
-	\subsubsection{Routeurs VPN}
-Ils sont à la base de l'architecture et sont situés à l'entrée de chacun des sites de l'AIP.
-Ils permettent les communications sécurisées site à site, mais également les communications vers un PC distant.
-\paragraph{Matériel envisagé}
-Le matériel proposé dans les documentations fournies peut convenir. En effet, il permet l'utilisation de VPN sur deux protocoles différents : 
-\begin{itemize}
-	\item{VPN de PPTP} Ce mode est intégré à Windows par l'utilisation de Radius.
-	\item{VPN L2TP IPSEC} Ce mode de fonctionement ne propose pas d'outils de QoS ce qui empêche toute utilisation de ce mode pour la VoIP ou visioconférence.
-\end{itemize}
 
-	\subsubsection{Switchs VLAN}
-Ces switchs permettent d'isoler les équipements qui peuvent inonder le réseau. Ainsi, les plateformes de TP qui utilisent le broadcast UDP peuvent être isolées dans un sous-réseau, tout en restant accessibles depuis l'extérieur.
-	
-	\subsubsection{Switchs conventionnels}
-Ces switchs permettent juste de connecter l'ensemble des machines de l'AIP. Ils n'ont aucune intelligence propre.
-	
-	\subsubsection{Serveur DHCP}
-Le serveur DHCP aura pour rôle l'attribution des adresses ip aux divers machines qui seront connectées. Les IP seront établies en fonctions du rôle et de la nature de la machine à connecter.
-
-	\subsubsection{Dimensionnement}
-Pour le dimensionement de ces équipements, nous nous limiterons à une gamme. En effet, les prestataire d'interventions dimensionnent eux-mêmes ces installation.\\
-Au vue de la documentation fournie., plusieurs choix peuvent être faits : 
-\begin{itemize}
-	\item \textbf{Routeurs VPN} La Gamme S@n convient à l'utilisation VPN que l'on aura de ces routeurs.
-	\item \textbf{Switchs VLAN} Nous utiliserons les VLAN proposés par Schneider Electric de la gamme ConneXium parametrables. 
-	\item \textbf{Switchs conventionnels} Nous utiliseront ceux de la même gamme ConneXium non paramétrables cette fois ci. 
-	\item \textbf{Serveurs DHCP} Cette fonctionnalité est très légère et ne nécessite pas d'infrastructure lourde. Le dimensionnement de cette machine ne sera pas abordé ici.
-\end{itemize}
-	
-	
-\section{Cahier de supervision}
-%	Armand et Nicolas
-
-\subsection{Objectifs}
+\section{Objectifs}
 La supervision d'éléments d'un réseau répond à plusieurs enjeux que l'OSI regroupe en cinq domaines : la gestion des pannes, de la configuration, de la comptabilité, des performances, et de la sécurité. Ces enjeux visent à assurer les exigences de fiabilité et garantir une visibilité sur les activités du réseau.  
 
-\subsection{Outils disponibles}
+\section{Outils disponibles}
 
 Afin de mettre en place les solutions de supervision du réseau nous disposons de deux types de ressources : les protocoles et les programmes (qui se basent sur les protocoles).\\ 
 
-\subsubsection{Protocoles}
+\subsection{Protocoles}
 
 L'administrateur dispose de fonctions de gestion de base au travers de différents protocoles :
 \begin{itemize}
@@ -80,7 +45,7 @@ L'administrateur dispose de fonctions de gestion de base au travers de différen
 \item le protocole \textbf{RMON} permet de dresser des statistiques et un historique des flux de données du réseau, par opposition à SNMP qui est centré sur les activités au niveau de chaque machine.
 \end{itemize}
 
-\subsubsection{Logiciels}
+\subsection{Logiciels}
 
 Parmi les nombreux outils de supervision nous retenons les suivants :
 \begin{itemize}
@@ -92,32 +57,17 @@ Parmi les nombreux outils de supervision nous retenons les suivants :
 ~\\
 Nous nous limiterons à une solution basée sur Nagios et MRTG pour le monitoring d'un serveur Gnu/Linux, d'un serveur Windows et d'un switch. 
 
-\subsection{Mise en oeuvre}
+\section{Mise en oeuvre}
 La portée de la supervision du réseau est définie par la position du poste d'administration dans le réseau. En d'autres termes la visibilité du poste de supervision correspond au sous-réseau définit par le premier routeur en amont. Aussi il est important de placer le poste d'administration au dans le même sous-réseau que les machines à surveiller.
 
 L'utilisation de Nagios et MRTG nécessitent l'installation sur le poste d'administration d'un serveur web Afin de bénéficier d'une représentation visuelle de l'activité au niveau système et au niveau réseau. Nous optons pour un serveur Apache.\\
 Il faudra également installer sur chaque machine cible un agent SNMP afin de permettre au logiciel MRTG d'utiliser le protocole SNMP.\\
 Il est également préférable d'installer un serveur SSH sur les machines cibles et un client ssh sur le poste de supervision, permettant aux administrateurs de contrôler les machines à distance et d'effectuer certaines tâches de maintenance et de supervision du système non accessible depuis Nagios et MRTG. 
 Nous optons pour OpenSSH sur les systèmes Gnu/Linux et Putty sur les plateformes Windows. 
-\subsection{Procédures d'intervention}
+\section{Procédures d'intervention}
 %oh merde j'avais oublié cette partie X_x
 %bon, pipo mod on !
 
 Lorsque Nagios détecte une anomalie, il notifie l'administateur (par envoi de mail ou par SMS), qui dans un premier temps utilisera les outils de supervisions mis en places pour cerner l'origine et peut être la cause du problème, et pourra dans un second temps intervenir à distance via SSH sur les machines concernées, réaliser une intervention physique, ou encore contacter les administrateurs du réseau RENATER si la source du problème dépasse la portée de son réseau.
-
-
-%\subsection{Exigences}
-%Dans le cadre de ce projet, plusieurs exigences sont mises au premier plan :
-%\begin{description}
-%\item{Sécurité}\\
-%	Il s'agit la de permettre des connexions plus sécurisée et un partage d'informations entre les différentes équipes de l'AIP plus privé. Il s'agit notamment d'éviter que les informations transmises sur les réseaux académiques ne puissent être lues.
-%   
-%\item{Robustesse}\\
-%	Les différents sites de l'AIP doivent être autonome en terme d'équipement et service informatique. Ainsi, si le site de central basé à Lyon tombe, les autres sites doivent rester en mesure de fonctionner. Cela inclut l'identification et authentification, le partage d'informations et l'utilisation des plateformes de TP mobiles.
-%   
-%\item{Silence}\\
-%	Les plateformes de TP utilisent de façon courante le multicast pour partager des informations. Des actions devront être mises en place afin d'éviter que les paquets multicasts émis par ces machines ne soient répliqués par les routeur des réseaux académiques (il s'agit la de leur comportement par défaut).
-%
-%\end{description}
 
 \end{document}
